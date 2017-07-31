@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
+    <title>Data structures &mdash; Karn 0.1 documentation</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+
+<link rel="stylesheet" href="_static/css/basicstrap-base.css" type="text/css" />
+<link rel="stylesheet" id="current-theme" href="_static/css/bootstrap3/bootswatch-sandstone.css" type="text/css" />
+<link rel="stylesheet" id="current-adjust-theme" href="_static/css/adjust_theme/bootswatch-sandstone.css" type="text/css" />
+
+<link rel="stylesheet" href="_static/css/font-awesome.min.css">
+
+<style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+</style>
+
+<link rel="stylesheet" href="_static/css/basicstrap.css" type="text/css" />
+<link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+<link rel="stylesheet" href="_static/css/karn.css" type="text/css" />
+    
+<script type="text/javascript">
+  var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    './',
+            VERSION:     '0.1',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+  };
+</script>
+    <script type="text/javascript" src="_static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/bootstrap3.min.js"></script>
+<script type="text/javascript" src="_static/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="_static/js/basicstrap.js"></script>
+<script type="text/javascript">
+</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="Karn 0.1 documentation" href="index.html" />
+    <link rel="next" title="Sorting" href="sorting.html" />
+    <link rel="prev" title="Build and install" href="make.html" /> 
+  </head>
+  <body role="document">
+    <div id="navbar-top" class="navbar navbar-fixed-top navbar-inverse" role="navigation" aria-label="top navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Karn 0.1 documentation</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown visible-xs">
+                <a role="button" id="localToc" data-toggle="dropdown" data-target="#" href="#">Table Of Contents <b class="caret"></b></a>
+                <ul class="dropdown-menu localtoc sp-localtoc" role="menu" aria-labelledby="localToc">
+                <ul>
+<li><a class="reference internal" href="#">Data structures</a><ul>
+<li><a class="reference internal" href="#singly-linked-list">Singly linked list</a></li>
+<li><a class="reference internal" href="#binary-heap">Binary Heap</a><ul>
+<li><a class="reference internal" href="#fixed-length-array-based-binary-heap">Fixed length array based binary heap</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                </ul>
+              </li>
+
+            
+              <li><a href="make.html" title="Build and install" accesskey="P">previous </a></li>
+              <li><a href="sorting.html" title="Sorting" accesskey="N">next </a></li>
+              <li><a href="genindex.html" title="General Index" accesskey="I">index </a></li>
+            
+
+            <li class="visible-xs">
+                <form class="search form-search form-inline navbar-form navbar-right sp-searchbox" action="search.html" method="get">
+                  <div class="input-append input-group">
+                    <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+                    <span class="input-group-btn">
+                    <input type="submit" class="btn" value="Go" />
+                    </span>
+                  </div>
+                  <input type="hidden" name="check_keywords" value="yes" />
+                  <input type="hidden" name="area" value="default" />
+                </form>
+            </li>
+
+            
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- container -->
+    <div class="container-fluid">
+
+      <!-- row -->
+      <div class="row">
+         
+<div class="col-md-3 hidden-xs" id="sidebar-wrapper">
+  <div class="sidebar hidden-xs" role="navigation" aria-label="main navigation">
+<div id="searchbox" role="search">
+  <h3>Quick search</h3>
+  <form class="search form-inline" action="search.html" method="get">
+      <div class="input-append input-group">
+        <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+        <span class="input-group-btn">
+        <input type="submit" class="btn" value="Go" />
+        </span>
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="start.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="make.html">Build and install</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Data structures</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#singly-linked-list">Singly linked list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#binary-heap">Binary Heap</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fixed-length-array-based-binary-heap">Fixed length array based binary heap</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev.html">Developer notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API reference</a></li>
+</ul>
+
+  </div>
+</div> 
+        
+
+        <div class="col-md-9" id="content-wrapper">
+          <div class="document" role="main">
+            <div class="documentwrapper">
+              <div class="bodywrapper">
+                <div class="body">
+                  
+  <div class="section" id="data-structures">
+<h1>Data structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="singly-linked-list">
+<span id="dstruct-slist"></span><h2>Singly linked list<a class="headerlink" href="#singly-linked-list" title="Permalink to this headline">¶</a></h2>
+<div class="sidebar">
+<p class="first sidebar-title">Quick links</p>
+<p class="last"><a class="reference internal" href="api.html#api-slist"><span class="std std-ref">API</span></a></p>
+</div>
+<p><code class="xref c c-type docutils literal"><span class="pre">slist</span></code> is a simple singly linked list allowing to link together
+arbitrary sequences of <code class="xref c c-type docutils literal"><span class="pre">slist_node</span></code> nodes. Iteration is unidirectional
+from head (start) to tail (end).</p>
+<p><code class="xref c c-type docutils literal"><span class="pre">slist_node</span></code> nodes are meant to be embedded into user structures
+allowing to implement usual list manipulation primitives in a generic and
+reusable way.</p>
+<p><code class="xref c c-type docutils literal"><span class="pre">slist</span></code> is NULL terminated. It contains a head node and an additional
+tail pointer allowing to quickly jump to the end of list. The former head node
+allows to save an extra pointer comparison when enqueuing a node (to tail) or
+joining (sub)lists.</p>
+</div>
+<div class="section" id="binary-heap">
+<h2>Binary Heap<a class="headerlink" href="#binary-heap" title="Permalink to this headline">¶</a></h2>
+<p>A binary heap is a binary tree with 2 additional constraints:</p>
+<dl class="docutils">
+<dt><em>shape property</em></dt>
+<dd>All levels of the tree are fully filled except the last one (deepest) where
+nodes are filled from left to right.</dd>
+<dt><em>heap property</em></dt>
+<dd>The key stored in each node is either greater than or equal
+to (max-heap), or less than or equal to (min-heap) the keys in the node&#8217;s
+children.</dd>
+</dl>
+<p>Typical operations:</p>
+<ul class="simple">
+<li>insert element</li>
+<li>extract smallest (min-heap) or largest (max-heap) element</li>
+<li>find smallest or largest element</li>
+<li>decrease</li>
+<li>merge</li>
+</ul>
+<p>Common usage:</p>
+<ul class="simple">
+<li>priority queues,</li>
+<li>(heap)sort.</li>
+</ul>
+<div class="section" id="fixed-length-array-based-binary-heap">
+<span id="dstruct-bheap-fixed"></span><h3>Fixed length array based binary heap<a class="headerlink" href="#fixed-length-array-based-binary-heap" title="Permalink to this headline">¶</a></h3>
+<div class="sidebar">
+<p class="first sidebar-title">Quick links</p>
+<p class="last"><a class="reference internal" href="api.html#api-bheap-fixed"><span class="std std-ref">API</span></a></p>
+</div>
+<p><em>Underlying structure</em> is a Fixed length array based binary search tree
+where each key is located into a traditional C array slot.</p>
+<p>2 <em>Heap and keys instantiation</em> alternatives:</p>
+<ul class="simple">
+<li>delegate underlying keys array preallocation to user,</li>
+<li>or allocate both heap and underlying keys array in a single block of memory.</li>
+</ul>
+<p><em>Insertion</em> and <em>extraction</em> operations by <em>copy</em>.</p>
+<p><em>Peeking</em> operation by <em>reference</em>.</p>
+<p><em>Key comparison</em> implementation delegated to user.</p>
+</div>
+</div>
+</div>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div><!-- /row -->
+
+      <!-- row -->
+      <div class="row footer-relbar">
+<div id="navbar-related" class=" related navbar navbar-default" role="navigation" aria-label="related navigation">
+  <div class="navbar-inner">
+    <ul class="nav navbar-nav ">
+        <li><a href="index.html">Karn 0.1 documentation</a></li>
+    </ul>
+<ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
+      
+        <li><a href="make.html" title="Build and install" >previous</a></li>
+        <li><a href="sorting.html" title="Sorting" >next</a></li>
+        <li><a href="genindex.html" title="General Index" >index</a></li>
+        <li><a href="#">top</a></li> 
+      
+    </ul>
+  </div>
+</div>
+      </div><!-- /row -->
+
+      <!-- footer -->
+      <footer role="contentinfo">
+          &copy; Copyright 2017, Grégor Boirie.
+      </footer>
+      <!-- /footer -->
+
+    </div>
+    <!-- /container -->
+
+  </body>
+</html>

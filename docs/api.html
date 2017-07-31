@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
+    <title>API reference &mdash; Karn 0.1 documentation</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+
+<link rel="stylesheet" href="_static/css/basicstrap-base.css" type="text/css" />
+<link rel="stylesheet" id="current-theme" href="_static/css/bootstrap3/bootswatch-sandstone.css" type="text/css" />
+<link rel="stylesheet" id="current-adjust-theme" href="_static/css/adjust_theme/bootswatch-sandstone.css" type="text/css" />
+
+<link rel="stylesheet" href="_static/css/font-awesome.min.css">
+
+<style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+</style>
+
+<link rel="stylesheet" href="_static/css/basicstrap.css" type="text/css" />
+<link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+<link rel="stylesheet" href="_static/css/karn.css" type="text/css" />
+    
+<script type="text/javascript">
+  var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    './',
+            VERSION:     '0.1',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+  };
+</script>
+    <script type="text/javascript" src="_static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/bootstrap3.min.js"></script>
+<script type="text/javascript" src="_static/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="_static/js/basicstrap.js"></script>
+<script type="text/javascript">
+</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="Karn 0.1 documentation" href="index.html" />
+    <link rel="prev" title="Developer notes" href="dev.html" /> 
+  </head>
+  <body role="document">
+    <div id="navbar-top" class="navbar navbar-fixed-top navbar-inverse" role="navigation" aria-label="top navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Karn 0.1 documentation</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown visible-xs">
+                <a role="button" id="localToc" data-toggle="dropdown" data-target="#" href="#">Table Of Contents <b class="caret"></b></a>
+                <ul class="dropdown-menu localtoc sp-localtoc" role="menu" aria-labelledby="localToc">
+                <ul>
+<li><a class="reference internal" href="#">API reference</a><ul>
+<li><a class="reference internal" href="#slingly-linked-list">Slingly linked list</a></li>
+<li><a class="reference internal" href="#fixed-length-array-base-binary-heap">Fixed length array base binary heap</a></li>
+</ul>
+</li>
+</ul>
+
+                </ul>
+              </li>
+
+            
+              <li><a href="dev.html" title="Developer notes" accesskey="P">previous </a></li>
+              <li><a href="genindex.html" title="General Index" accesskey="I">index </a></li>
+            
+
+            <li class="visible-xs">
+                <form class="search form-search form-inline navbar-form navbar-right sp-searchbox" action="search.html" method="get">
+                  <div class="input-append input-group">
+                    <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+                    <span class="input-group-btn">
+                    <input type="submit" class="btn" value="Go" />
+                    </span>
+                  </div>
+                  <input type="hidden" name="check_keywords" value="yes" />
+                  <input type="hidden" name="area" value="default" />
+                </form>
+            </li>
+
+            
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- container -->
+    <div class="container-fluid">
+
+      <!-- row -->
+      <div class="row">
+         
+<div class="col-md-3 hidden-xs" id="sidebar-wrapper">
+  <div class="sidebar hidden-xs" role="navigation" aria-label="main navigation">
+<div id="searchbox" role="search">
+  <h3>Quick search</h3>
+  <form class="search form-inline" action="search.html" method="get">
+      <div class="input-append input-group">
+        <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+        <span class="input-group-btn">
+        <input type="submit" class="btn" value="Go" />
+        </span>
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="start.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="make.html">Build and install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_struct.html">Data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev.html">Developer notes</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#slingly-linked-list">Slingly linked list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fixed-length-array-base-binary-heap">Fixed length array base binary heap</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+</div> 
+        
+
+        <div class="col-md-9" id="content-wrapper">
+          <div class="document" role="main">
+            <div class="documentwrapper">
+              <div class="bodywrapper">
+                <div class="body">
+                  
+  <div class="section" id="api-reference">
+<h1>API reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h1>
+<p>API exposed by the Karn library.</p>
+<div class="section" id="slingly-linked-list">
+<span id="api-slist"></span><h2>Slingly linked list<a class="headerlink" href="#slingly-linked-list" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="c.slist_init">
+<span class="target" id="Karngroup__slist_1ga430c94443e9ea2bc2dbaf3c3ab0e29db"></span>static void <code class="descname">slist_init</code><span class="sig-paren">(</span>struct  slist  *<em>&nbsp;list</em><span class="sig-paren">)</span><a class="headerlink" href="#c.slist_init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a slist. </p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">list</span></code>: slist to initialize. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.slist_empty">
+<span class="target" id="Karngroup__slist_1ga67b5b04dc0457371169699de9f0e5180"></span>static bool <code class="descname">slist_empty</code><span class="sig-paren">(</span>const struct  slist  *<em>&nbsp;list</em><span class="sig-paren">)</span><a class="headerlink" href="#c.slist_empty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test wether a slist is empty or not. </p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">list</span></code>: slist to test.</li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">true</span></code>: empty </li>
+<li><code class="docutils literal"><span class="pre">false</span></code>: not empty </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.slist_head">
+<span class="target" id="Karngroup__slist_1gad1b43ebc6ecd4e15f82e82c9463b10db"></span>static struct slist_node* <code class="descname">slist_head</code><span class="sig-paren">(</span>struct  slist  *<em>&nbsp;list</em><span class="sig-paren">)</span><a class="headerlink" href="#c.slist_head" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return slist head. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>Pointer to list&#8217;s head node. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">list</span></code>: slist to get head from.</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.slist_next">
+<span class="target" id="Karngroup__slist_1gaa4ee913a22378073ac2410c84a185ce6"></span>static struct slist_node* <code class="descname">slist_next</code><span class="sig-paren">(</span>const struct  slist_node  *<em>&nbsp;node</em><span class="sig-paren">)</span><a class="headerlink" href="#c.slist_next" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get node following specified node. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>Pointer to following node. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">node</span></code>: Node which to get the follower from.</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.slist_first">
+<span class="target" id="Karngroup__slist_1ga3992525e0970a3794b7a776bf1af5a5c"></span>static struct slist_node* <code class="descname">slist_first</code><span class="sig-paren">(</span>const struct  slist  *<em>&nbsp;list</em><span class="sig-paren">)</span><a class="headerlink" href="#c.slist_first" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get first node of specified slist. </p>
+<p><dl class="docutils">
+<dt><strong>Warning</strong></dt>
+<dd>Behavior is undefined when called on an empty slist. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">list</span></code>: slist to get the first node from.</li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">Pointer</span></code>: to first list&#8217;s node. </li>
+<li><code class="docutils literal"><span class="pre">NULL</span></code>: means list is empty.</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.slist_last">
+<span class="target" id="Karngroup__slist_1ga063885cb544c9213a8cec356fe77a7e2"></span>static struct slist_node* <code class="descname">slist_last</code><span class="sig-paren">(</span>const struct  slist  *<em>&nbsp;list</em><span class="sig-paren">)</span><a class="headerlink" href="#c.slist_last" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get last node of specified slist. </p>
+<p><dl class="docutils">
+<dt><strong>Warning</strong></dt>
+<dd>Behavior is undefined when called on an empty slist.</dd>
+<dt><strong>See</strong></dt>
+<dd><a class="reference internal" href="#Karngroup__slist_1gad1b43ebc6ecd4e15f82e82c9463b10db"><span class="std std-ref">slist_head()</span></a> </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">list</span></code>: slist to get the last node from.</li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">Pointer</span></code>: to last list&#8217;s node. </li>
+<li><code class="docutils literal"><span class="pre">Pointer</span></code>: to list&#8217;s head node means list is empty.</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.slist_append">
+<span class="target" id="Karngroup__slist_1gadb550e23298bf3df55f3966d67a90d78"></span>static void <code class="descname">slist_append</code><span class="sig-paren">(</span>struct  slist  *<em>&nbsp;list</em>, struct  slist_node  *restrict<em>&nbsp;previous</em>, struct  slist_node  *restrict<em>&nbsp;node</em><span class="sig-paren">)</span><a class="headerlink" href="#c.slist_append" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a node into a slist. </p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">list</span></code>: slist to add node to. </li>
+<li><code class="docutils literal"><span class="pre">previous</span></code>: Node preceding the one to add. </li>
+<li><code class="docutils literal"><span class="pre">node</span></code>: Node to add. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.slist_delete">
+<span class="target" id="Karngroup__slist_1ga306ecf746556fad948dfa5bf2bdc6281"></span>static void <code class="descname">slist_delete</code><span class="sig-paren">(</span>struct  slist  *<em>&nbsp;list</em>, struct  slist_node  *restrict<em>&nbsp;previous</em>, const struct  slist_node  *restrict<em>&nbsp;node</em><span class="sig-paren">)</span><a class="headerlink" href="#c.slist_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a node from a slist. </p>
+<p><dl class="docutils">
+<dt><strong>Warning</strong></dt>
+<dd>Behavior is undefined when called on an empty slist. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">list</span></code>: slist to remove node from. </li>
+<li><code class="docutils literal"><span class="pre">previous</span></code>: Node preceding the one to remove. </li>
+<li><code class="docutils literal"><span class="pre">node</span></code>: Node to remove.</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.slist_move">
+<span class="target" id="Karngroup__slist_1ga3a626948e4e751df03aa16da684fd137"></span>void <code class="descname">slist_move</code><span class="sig-paren">(</span>struct  slist  *<em>&nbsp;list</em>, struct  slist_node  *restrict<em>&nbsp;at</em>, struct  slist_node  *restrict<em>&nbsp;previous</em>, struct  slist_node  *restrict<em>&nbsp;node</em><span class="sig-paren">)</span><a class="headerlink" href="#c.slist_move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move slist node from one location to another. </p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">list</span></code>: slist to insert node into </li>
+<li><code class="docutils literal"><span class="pre">at</span></code>: list&#8217;s node to insert node after </li>
+<li><code class="docutils literal"><span class="pre">previous</span></code>: Node preceding the node to move </li>
+<li><code class="docutils literal"><span class="pre">node</span></code>: Node to move </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.slist_nqueue">
+<span class="target" id="Karngroup__slist_1gadae246562628f4e76980cafca186e4b1"></span>static void <code class="descname">slist_nqueue</code><span class="sig-paren">(</span>struct  slist  *<em>&nbsp;list</em>, struct  slist_node  *restrict<em>&nbsp;node</em><span class="sig-paren">)</span><a class="headerlink" href="#c.slist_nqueue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a node to the end of a slist. </p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">list</span></code>: slist to add node to. </li>
+<li><code class="docutils literal"><span class="pre">node</span></code>: Node to enqueue. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.slist_dqueue">
+<span class="target" id="Karngroup__slist_1gadc25d024a6751569f07d8c8481bcc3f7"></span>static struct slist_node* <code class="descname">slist_dqueue</code><span class="sig-paren">(</span>struct  slist  *<em>&nbsp;list</em><span class="sig-paren">)</span><a class="headerlink" href="#c.slist_dqueue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a node of the begining of a slist and return it. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>Pointer to dequeued node.</dd>
+<dt><strong>Warning</strong></dt>
+<dd>Behavior is undefined when called on an empty slist. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">list</span></code>: slist to dequeue node from.</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.slist_withdraw">
+<span class="target" id="Karngroup__slist_1gade009ff1a5958ad2771f219ef043c328"></span>static void <code class="descname">slist_withdraw</code><span class="sig-paren">(</span>struct  slist  *<em>&nbsp;list</em>, struct  slist_node  *restrict<em>&nbsp;first</em>, const struct  slist_node  *restrict<em>&nbsp;last</em><span class="sig-paren">)</span><a class="headerlink" href="#c.slist_withdraw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract / remove a portion of nodes from a slist. </p>
+<p><dl class="docutils">
+<dt><strong>Warning</strong></dt>
+<dd>Behavior is undefined when called on an empty slist. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">list</span></code>: slist to remove nodes from. </li>
+<li><code class="docutils literal"><span class="pre">first</span></code>: Node preceding the first node of the portion to remove. </li>
+<li><code class="docutils literal"><span class="pre">last</span></code>: Last node of portion to remove.</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.slist_embed">
+<span class="target" id="Karngroup__slist_1ga55e6f1003019063deae41bdc346e0612"></span>static void <code class="descname">slist_embed</code><span class="sig-paren">(</span>struct  slist  *<em>&nbsp;list</em>, struct  slist_node  *restrict<em>&nbsp;at</em>, struct  slist_node  *restrict<em>&nbsp;first</em>, struct  slist_node  *restrict<em>&nbsp;last</em><span class="sig-paren">)</span><a class="headerlink" href="#c.slist_embed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert a portion of nodes into a slist. </p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">list</span></code>: slist to insert nodes into. </li>
+<li><code class="docutils literal"><span class="pre">at</span></code>: Node after which portion is inserted. </li>
+<li><code class="docutils literal"><span class="pre">first</span></code>: First node of portion to insert. </li>
+<li><code class="docutils literal"><span class="pre">last</span></code>: Last node of portion to insert. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.slist_splice">
+<span class="target" id="Karngroup__slist_1ga4edb281b51147b064a7809d223a42e59"></span>void <code class="descname">slist_splice</code><span class="sig-paren">(</span>struct  slist  *restrict<em>&nbsp;result</em>, struct  slist_node  *restrict<em>&nbsp;at</em>, struct  slist  *restrict<em>&nbsp;source</em>, struct  slist_node  *restrict<em>&nbsp;first</em>, struct  slist_node  *restrict<em>&nbsp;last</em><span class="sig-paren">)</span><a class="headerlink" href="#c.slist_splice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract source list portion and move it to result list at specified location. </p>
+<p><dl class="docutils">
+<dt><strong>Warning</strong></dt>
+<dd>Behavior is undefined when called on an empty <code class="docutils literal"><span class="pre">source</span></code> slist. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">result</span></code>: slist to insert nodes into. </li>
+<li><code class="docutils literal"><span class="pre">at</span></code>: result&#8217;s node to insert nodes after. </li>
+<li><code class="docutils literal"><span class="pre">source</span></code>: slist to extract nodes from. </li>
+<li><code class="docutils literal"><span class="pre">first</span></code>: Node preceding the nodes portion to move. </li>
+<li><code class="docutils literal"><span class="pre">last</span></code>: Last portions&#8217;s node to move.</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.slist_insertion_sort">
+<span class="target" id="Karngroup__slist_1ga7370a2d04c214ed1ccfb039e7c12f4b3"></span>void <code class="descname">slist_insertion_sort</code><span class="sig-paren">(</span>struct  slist  *<em>&nbsp;list</em>, <a class="reference internal" href="#c.slist_compare_fn" title="slist_compare_fn">slist_compare_fn</a>  *<em>&nbsp;compare</em><span class="sig-paren">)</span><a class="headerlink" href="#c.slist_insertion_sort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sort specified list according to the insertion sort scheme. </p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">list</span></code>: slist to sort. </li>
+<li><code class="docutils literal"><span class="pre">compare</span></code>: Comparison function used to compute order between 2 nodes. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.slist_counted_insertion_sort">
+<span class="target" id="Karngroup__slist_1ga0d3125f733f486c321de3f5ab10b7e6d"></span>void <code class="descname">slist_counted_insertion_sort</code><span class="sig-paren">(</span>struct  slist  *restrict<em>&nbsp;result</em>, struct  slist  *restrict<em>&nbsp;source</em>, unsigned int<em>&nbsp;count</em>, <a class="reference internal" href="#c.slist_compare_fn" title="slist_compare_fn">slist_compare_fn</a>  *<em>&nbsp;compare</em><span class="sig-paren">)</span><a class="headerlink" href="#c.slist_counted_insertion_sort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sort a specified number of nodes from a slist according to the insertion sort scheme and move sorted nodes into a result slist. </p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">result</span></code>: Result slist where sorted nodes are moved. </li>
+<li><code class="docutils literal"><span class="pre">source</span></code>: Source slist to sort. </li>
+<li><code class="docutils literal"><span class="pre">count</span></code>: Maximum number of source nodes to sort. </li>
+<li><code class="docutils literal"><span class="pre">compare</span></code>: Comparison function used to compute order between 2 nodes. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.slist_selection_sort">
+<span class="target" id="Karngroup__slist_1gad6380db36eaacb47ed4c5b8247c6f2af"></span>void <code class="descname">slist_selection_sort</code><span class="sig-paren">(</span>struct  slist  *<em>&nbsp;list</em>, <a class="reference internal" href="#c.slist_compare_fn" title="slist_compare_fn">slist_compare_fn</a>  *<em>&nbsp;compare</em><span class="sig-paren">)</span><a class="headerlink" href="#c.slist_selection_sort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sort specified list according to the insertion sort scheme. </p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">list</span></code>: slist to sort. </li>
+<li><code class="docutils literal"><span class="pre">compare</span></code>: Comparison function used to compute order between 2 nodes. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.slist_bubble_sort">
+<span class="target" id="Karngroup__slist_1gaf776f257e23b741799508d57559ec3a6"></span>void <code class="descname">slist_bubble_sort</code><span class="sig-paren">(</span>struct  slist  *<em>&nbsp;list</em>, <a class="reference internal" href="#c.slist_compare_fn" title="slist_compare_fn">slist_compare_fn</a>  *<em>&nbsp;compare</em><span class="sig-paren">)</span><a class="headerlink" href="#c.slist_bubble_sort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sort specified list according to the bubble sort scheme. </p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">list</span></code>: slist to sort. </li>
+<li><code class="docutils literal"><span class="pre">compare</span></code>: Comparison function used to compute order between 2 nodes. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.slist_merge_presort">
+<span class="target" id="Karngroup__slist_1ga3c8b71cf5f20a70ee64600b611a38bf0"></span>void <code class="descname">slist_merge_presort</code><span class="sig-paren">(</span>struct  slist  *<em>&nbsp;result</em>, struct  slist  *<em>&nbsp;source</em>, <a class="reference internal" href="#c.slist_compare_fn" title="slist_compare_fn">slist_compare_fn</a>  *<em>&nbsp;compare</em><span class="sig-paren">)</span><a class="headerlink" href="#c.slist_merge_presort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sort 2 presorted slists into a single one. </p>
+<p><dl class="docutils">
+<dt><strong>Warning</strong></dt>
+<dd>Behavior is undefined when called on an empty <code class="docutils literal"><span class="pre">source</span></code> slist. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">result</span></code>: slist within which both slists will be sorted into. </li>
+<li><code class="docutils literal"><span class="pre">source</span></code>: Source slist to sort within result. </li>
+<li><code class="docutils literal"><span class="pre">compare</span></code>: Comparison function used to compute order between 2 nodes.</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.slist_hybrid_merge_sort">
+<span class="target" id="Karngroup__slist_1gae81787ebd15464736fe5768577c2de49"></span>void <code class="descname">slist_hybrid_merge_sort</code><span class="sig-paren">(</span>struct  slist  *<em>&nbsp;list</em>, unsigned int<em>&nbsp;run_len</em>, unsigned int<em>&nbsp;nodes_nr</em>, <a class="reference internal" href="#c.slist_compare_fn" title="slist_compare_fn">slist_compare_fn</a>  *<em>&nbsp;compare</em><span class="sig-paren">)</span><a class="headerlink" href="#c.slist_hybrid_merge_sort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sort specified list according to an hybrid sort scheme mixing insertion and merge sort algorithms. </p>
+<p><em>Description </em><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">list</span></code>: slist to sort. </li>
+<li><code class="docutils literal"><span class="pre">run_len</span></code>: Primary sorting run length in number of nodes. </li>
+<li><code class="docutils literal"><span class="pre">nodes_nr</span></code>: Number of nodes linked into list. </li>
+<li><code class="docutils literal"><span class="pre">compare</span></code>: Comparison function used to compute order between 2 nodes.</li>
+</ul>
+</dd>
+</dl>
+</p>
+<p>Use insertion scheme to sort sublists shorter than <code class="docutils literal"><span class="pre">run_len</span></code> nodes then switch to merge sort strategy for longer ones.</p>
+<p>Merge sorting implementation is based on an original idea attributed to Jon McCarthy and described <a class="reference external" href="http://richardhartersworld.com/cri/2007/schoen.html">here</a>.</p>
+<p>The whole point is : avoid excessive scanning of the list during sublist splitting phases by using an additional bounded auxiliary space to store sublist heads. The whole process is performed in an iterative manner.</p>
+<p><strong>Time complexity</strong> <strong>Auxiliary space</strong>: allocated on stack <strong>Stability</strong>: yes</p>
+<p><dl class="docutils">
+<dt><strong>Warning</strong></dt>
+<dd>Behavior is undefined when called on an empty slist. </dd>
+<dt><strong>Warning</strong></dt>
+<dd>Behavior is undefined when called with <code class="docutils literal"><span class="pre">run_len</span></code> &lt; 1. </dd>
+<dt><strong>Warning</strong></dt>
+<dd>Behavior is undefined when called with <code class="docutils literal"><span class="pre">nodes_nr</span></code> &lt; 1. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.slist_merge_sort">
+<span class="target" id="Karngroup__slist_1ga18ad7a7912c52dc4989e6ccb7bba1ac9"></span>void <code class="descname">slist_merge_sort</code><span class="sig-paren">(</span>struct  slist  *<em>&nbsp;list</em>, unsigned int<em>&nbsp;nodes_nr</em>, <a class="reference internal" href="#c.slist_compare_fn" title="slist_compare_fn">slist_compare_fn</a>  *<em>&nbsp;compare</em><span class="sig-paren">)</span><a class="headerlink" href="#c.slist_merge_sort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sort specified list according to an hybrid merge sort scheme. </p>
+<p>
+Basically a wrapper around <a class="reference internal" href="#Karngroup__slist_1gae81787ebd15464736fe5768577c2de49"><span class="std std-ref">slist_hybrid_merge_sort()</span></a> implementing a heuristic to automatically compute a proper value for the initial run length.<dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">list</span></code>: slist to sort. </li>
+<li><code class="docutils literal"><span class="pre">nodes_nr</span></code>: Number of nodes linked into list. </li>
+<li><code class="docutils literal"><span class="pre">compare</span></code>: Comparison function used to compute order between 2 nodes.</li>
+</ul>
+</dd>
+</dl>
+</p>
+<p><dl class="docutils">
+<dt><strong>Warning</strong></dt>
+<dd>Behavior is undefined when called on an empty slist. </dd>
+<dt><strong>Warning</strong></dt>
+<dd>Behavior is undefined when called with <code class="docutils literal"><span class="pre">nodes_nr</span></code> &lt; 1.</dd>
+<dt><strong>See</strong></dt>
+<dd><a class="reference internal" href="#Karngroup__slist_1gae81787ebd15464736fe5768577c2de49"><span class="std std-ref">slist_hybrid_merge_sort()</span></a> </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="define">
+<dt id="c.SLIST_INIT">
+<span class="target" id="Karngroup__slist_1ga1af87208bd4ed10cfc1e4a884a300263"></span><code class="descname">SLIST_INIT</code><span class="sig-paren">(</span>_list<span class="sig-paren">)</span> {                                                     \
+		.<a class="reference internal" href="#Karngroup__slist_1gaa4ee913a22378073ac2410c84a185ce6"><span class="std std-ref">slist_head.slist_next</span></a> = NULL,                \
+		.slist_tail            = &amp;(_list)-&gt;<a class="reference internal" href="#Karngroup__slist_1gad1b43ebc6ecd4e15f82e82c9463b10db"><span class="std std-ref">slist_head</span></a> \
+	}<a class="headerlink" href="#c.SLIST_INIT" title="Permalink to this definition">¶</a></dt>
+<dd><p>slist constant initializer. </p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">_list</span></code>: slist variable to initialize. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="define">
+<dt id="c.slist_foreach_node">
+<span class="target" id="Karngroup__slist_1gac3e77ee43dc826388648cf7b3b76b676"></span><code class="descname">slist_foreach_node</code><span class="sig-paren">(</span>_list, _node<span class="sig-paren">)</span> for (_node = (_list)-&gt;<a class="reference internal" href="#Karngroup__slist_1gaa4ee913a22378073ac2410c84a185ce6"><span class="std std-ref">slist_head.slist_next</span></a>; \
+	     _node;                                  \
+	     _node = _node-&gt;<a class="reference internal" href="#Karngroup__slist_1gaa4ee913a22378073ac2410c84a185ce6"><span class="std std-ref">slist_next</span></a>)<a class="headerlink" href="#c.slist_foreach_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterate over slist nodes. </p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">_list</span></code>: slist to iterate over. </li>
+<li><code class="docutils literal"><span class="pre">_node</span></code>: Pointer to current node. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="define">
+<dt id="c.slist_entry">
+<span class="target" id="Karngroup__slist_1ga0f80a5e195f9681f1d71cfa0ed3fc85d"></span><code class="descname">slist_entry</code><span class="sig-paren">(</span>_node, _type, _member<span class="sig-paren">)</span> ({                                                         \
+		const struct <a class="reference internal" href="#Karnstructslist__node"><span class="std std-ref">slist_node</span></a> *__n = _node;              \
+		(_type *)((char *)__n - offsetof(_type, _member)); \
+	 })<a class="headerlink" href="#c.slist_entry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return type casted pointer to entry containing specified node. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>Pointer to type casted entry. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">_node</span></code>: slist node to retrieve container from. </li>
+<li><code class="docutils literal"><span class="pre">_type</span></code>: Type of container </li>
+<li><code class="docutils literal"><span class="pre">_member</span></code>: Member field of container structure pointing to _node.</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="define">
+<dt id="c.slist_first_entry">
+<span class="target" id="Karngroup__slist_1gaef78b7a661ee8620ca4d9adc2c30fe39"></span><code class="descname">slist_first_entry</code><span class="sig-paren">(</span>_list, _type, _member<span class="sig-paren">)</span> <a class="reference internal" href="#Karngroup__slist_1ga0f80a5e195f9681f1d71cfa0ed3fc85d"><span class="std std-ref">slist_entry</span></a>(<a class="reference internal" href="#Karngroup__slist_1ga3992525e0970a3794b7a776bf1af5a5c"><span class="std std-ref">slist_first</span></a>(_list), _type, _member)<a class="headerlink" href="#c.slist_first_entry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return type casted pointer to entry containing first node of specified slist. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>Pointer to type casted entry. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">_list</span></code>: slist to get the first node from. </li>
+<li><code class="docutils literal"><span class="pre">_type</span></code>: Type of container. </li>
+<li><code class="docutils literal"><span class="pre">_member</span></code>: Member field of container structure pointing to first _list&#8217;s node.</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="define">
+<dt id="c.slist_last_entry">
+<span class="target" id="Karngroup__slist_1gaacb56a61e05ee0f522d2894f58583596"></span><code class="descname">slist_last_entry</code><span class="sig-paren">(</span>_list, _type, _member<span class="sig-paren">)</span> <a class="reference internal" href="#Karngroup__slist_1ga0f80a5e195f9681f1d71cfa0ed3fc85d"><span class="std std-ref">slist_entry</span></a>(<a class="reference internal" href="#Karngroup__slist_1ga063885cb544c9213a8cec356fe77a7e2"><span class="std std-ref">slist_last</span></a>(_list), _type, _member)<a class="headerlink" href="#c.slist_last_entry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return type casted pointer to entry containing last node of specified slist. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>Pointer to type casted entry. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">_list</span></code>: slist to get the last node from. </li>
+<li><code class="docutils literal"><span class="pre">_type</span></code>: Type of container. </li>
+<li><code class="docutils literal"><span class="pre">_member</span></code>: Member field of container structure pointing to last _list&#8217;s node.</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="define">
+<dt id="c.slist_next_entry">
+<span class="target" id="Karngroup__slist_1ga999d51563ee6e8133ba120c38bfbd8ce"></span><code class="descname">slist_next_entry</code><span class="sig-paren">(</span>_entry, _member<span class="sig-paren">)</span> <a class="reference internal" href="#Karngroup__slist_1ga0f80a5e195f9681f1d71cfa0ed3fc85d"><span class="std std-ref">slist_entry</span></a>(<a class="reference internal" href="#Karngroup__slist_1gaa4ee913a22378073ac2410c84a185ce6"><span class="std std-ref">slist_next</span></a>(&amp;(_entry)-&gt;_member), typeof(*(_entry)), _member)<a class="headerlink" href="#c.slist_next_entry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return type casted pointer to entry following specified entry. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>Pointer to following entry. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">_entry</span></code>: Entry containing slist node. </li>
+<li><code class="docutils literal"><span class="pre">_member</span></code>: Member field of container structure pointing to slist node.</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="define">
+<dt id="c.slist_foreach_entry">
+<span class="target" id="Karngroup__slist_1ga6f41aef98d1428a6252709b8d05e17d1"></span><code class="descname">slist_foreach_entry</code><span class="sig-paren">(</span>_list, _entry, _member<span class="sig-paren">)</span> for (_entry = <a class="reference internal" href="#Karngroup__slist_1ga0f80a5e195f9681f1d71cfa0ed3fc85d"><span class="std std-ref">slist_entry</span></a>((_list)-&gt;<a class="reference internal" href="#Karngroup__slist_1gaa4ee913a22378073ac2410c84a185ce6"><span class="std std-ref">slist_head.slist_next</span></a>, \
+	                          typeof(*(_entry)), _member);    \
+	     &amp;(_entry)-&gt;_member;                                  \
+	     _entry = <a class="reference internal" href="#Karngroup__slist_1ga0f80a5e195f9681f1d71cfa0ed3fc85d"><span class="std std-ref">slist_entry</span></a>((_entry)-&gt;<a class="reference internal" href="#Karngroup__slist_1gaa4ee913a22378073ac2410c84a185ce6"><span class="std std-ref">_member.slist_next</span></a>,   \
+	                          typeof(*(_entry)), _member))<a class="headerlink" href="#c.slist_foreach_entry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterate over slist node container entries. </p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">_list</span></code>: slist to iterate over. </li>
+<li><code class="docutils literal"><span class="pre">_entry</span></code>: Pointer to entry containing _list&#8217;s current node. </li>
+<li><code class="docutils literal"><span class="pre">_member</span></code>: Member field of container structure pointing to slist node. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="typedef">
+<dt id="c.slist_compare_fn">
+<span class="target" id="Karngroup__slist_1ga22d599563d72f307542af6240ddac290"></span><em class="property">typedef </em><code class="descname">slist_compare_fn</code><a class="headerlink" href="#c.slist_compare_fn" title="Permalink to this definition">¶</a></dt>
+<dd><p>slist item comparison function prototype. </p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">first</span></code>: node to compare with <code class="docutils literal"><span class="pre">second</span></code> </li>
+<li><code class="docutils literal"><span class="pre">second</span></code>: node to compare with <code class="docutils literal"><span class="pre">first</span></code> </li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">&lt;0</span></code>: <code class="docutils literal"><span class="pre">first</span></code> precedes <code class="docutils literal"><span class="pre">second</span></code> </li>
+<li><code class="docutils literal"><span class="pre">0</span></code>: <code class="docutils literal"><span class="pre">first</span></code> and <code class="docutils literal"><span class="pre">second</span></code> are equal </li>
+<li><code class="docutils literal"><span class="pre">&gt;0</span></code>: <code class="docutils literal"><span class="pre">first</span></code> follows <code class="docutils literal"><span class="pre">second</span></code> </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv210slist_node">
+<span id="slist_node"></span><span class="target" id="Karnstructslist__node"></span><em class="property">struct </em><code class="descclassname"></code><code class="descname">slist_node</code><a class="headerlink" href="#_CPPv210slist_node" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;slist.h&gt;</em><p>Singly linked list node. </p>
+<p>Describes a single entry linked into a slist. </p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="variable">
+<dt id="c.slist_node::slist_next">
+<span class="target" id="Karnstructslist__node_1ab9758dba1a1dde8f83611f77ec703b93"></span>struct slist_node* <code class="descname">slist_next</code><a class="headerlink" href="#c.slist_node::slist_next" title="Permalink to this definition">¶</a></dt>
+<dd><p>Node following this node into a slist. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv25slist">
+<span id="slist"></span><span class="target" id="Karnstructslist"></span><em class="property">struct </em><code class="descclassname"></code><code class="descname">slist</code><a class="headerlink" href="#_CPPv25slist" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;slist.h&gt;</em><p>Singly linked list. </p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="variable">
+<dt id="c.slist::slist_head">
+<span class="target" id="Karnstructslist_1a324bb2ee01bba93f0f124dba6e28f1ef"></span>struct slist_node <code class="descname">slist_head</code><a class="headerlink" href="#c.slist::slist_head" title="Permalink to this definition">¶</a></dt>
+<dd><p>slist head allowing to locate the first linked node. </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.slist::slist_tail">
+<span class="target" id="Karnstructslist_1ae2029140b19910c189df667cb73a6eb9"></span>struct slist_node* <code class="descname">slist_tail</code><a class="headerlink" href="#c.slist::slist_tail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Last entry in this slist. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="fixed-length-array-base-binary-heap">
+<span id="api-bheap-fixed"></span><h2>Fixed length array base binary heap<a class="headerlink" href="#fixed-length-array-base-binary-heap" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="c.bheap_fixed_empty">
+<span class="target" id="Karngroup__bheap__fixed_1gad6924ba5128c3b61fc67f57d50c8874e"></span>static bool <code class="descname">bheap_fixed_empty</code><span class="sig-paren">(</span>struct  bheap_fixed  *<em>&nbsp;heap</em><span class="sig-paren">)</span><a class="headerlink" href="#c.bheap_fixed_empty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicate wether a fixed length array based binary heap is empty or not. </p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">heap</span></code>: heap to test</li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">true</span></code>: empty </li>
+<li><code class="docutils literal"><span class="pre">false</span></code>: not empty </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.bheap_fixed_full">
+<span class="target" id="Karngroup__bheap__fixed_1ga654046097d09f2d6a2fe604bd7dd7651"></span>static bool <code class="descname">bheap_fixed_full</code><span class="sig-paren">(</span>struct  bheap_fixed  *<em>&nbsp;heap</em><span class="sig-paren">)</span><a class="headerlink" href="#c.bheap_fixed_full" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicate wether a fixed length array based binary heap is full or not. </p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">heap</span></code>: heap to test</li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">true</span></code>: full </li>
+<li><code class="docutils literal"><span class="pre">false</span></code>: not full </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.bheap_peek_fixed">
+<span class="target" id="Karngroup__bheap__fixed_1ga6eeae6b37de0ca669406c52f5aaf7408"></span>static char* <code class="descname">bheap_peek_fixed</code><span class="sig-paren">(</span>const struct  bheap_fixed  *<em>&nbsp;heap</em><span class="sig-paren">)</span><a class="headerlink" href="#c.bheap_peek_fixed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve first node satisfying the heap property. </p>
+<p>
+Heap propery is preserved through array_compare_fn function pointer passed as argument at insertion and extraction time. Depending on user&#8217;s compare implementation, <a class="reference internal" href="#Karngroup__bheap__fixed_1ga6eeae6b37de0ca669406c52f5aaf7408"><span class="std std-ref">bheap_peek_fixed()</span></a> will therefore return smallest node for a min-heap, greatest one for a max-heap, or anything else if not used / implemented in a consistent manner.<dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">heap</span></code>: heap to retrieve node from</li>
+</ul>
+</dd>
+</dl>
+</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>pointer to first node</dd>
+<dt><strong>Warning</strong></dt>
+<dd>Behavior is undefined if <code class="docutils literal"><span class="pre">heap</span></code> is empty. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.bheap_insert_fixed">
+<span class="target" id="Karngroup__bheap__fixed_1ga0b51350d29215a27f176f22ce2694e61"></span>void <code class="descname">bheap_insert_fixed</code><span class="sig-paren">(</span>struct  bheap_fixed  *<em>&nbsp;heap</em>, const char *<em>&nbsp;node</em>, array_compare_fn  *<em>&nbsp;compare</em><span class="sig-paren">)</span><a class="headerlink" href="#c.bheap_insert_fixed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert data into a fixed length array based binary heap. </p>
+<p><code class="docutils literal"><span class="pre">node</span></code> is inserted by copy. <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">heap</span></code>: heap to insert into </li>
+<li><code class="docutils literal"><span class="pre">node</span></code>: data to insert </li>
+<li><code class="docutils literal"><span class="pre">compare</span></code>: comparison function used to locate the right array slot to insert data into</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.bheap_extract_fixed">
+<span class="target" id="Karngroup__bheap__fixed_1ga23ca1e67414d37f4ad013c401bf3ebef"></span>void <code class="descname">bheap_extract_fixed</code><span class="sig-paren">(</span>struct  bheap_fixed  *<em>&nbsp;heap</em>, char *<em>&nbsp;node</em>, array_compare_fn  *<em>&nbsp;compare</em><span class="sig-paren">)</span><a class="headerlink" href="#c.bheap_extract_fixed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert data into a fixed length array based binary heap. </p>
+<p><code class="docutils literal"><span class="pre">node</span></code> is inserted by copy. Heap propery is preserved through array_compare_fn function pointer passed as argument at insertion and extraction time. Depending on user&#8217;s compare implementation, <a class="reference internal" href="#Karngroup__bheap__fixed_1ga6eeae6b37de0ca669406c52f5aaf7408"><span class="std std-ref">bheap_peek_fixed()</span></a> will therefore return smallest node for a min-heap, greatest one for a max-heap, or anything else if not used / implemented in a consistent manner.<dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">heap</span></code>: heap to insert into </li>
+<li><code class="docutils literal"><span class="pre">node</span></code>: data to insert </li>
+<li><code class="docutils literal"><span class="pre">compare</span></code>: comparison function used to locate the right array slot to insert data into</li>
+</ul>
+</dd>
+</dl>
+</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>pointer to first node</dd>
+<dt><strong>Warning</strong></dt>
+<dd>Behavior is undefined if <code class="docutils literal"><span class="pre">heap</span></code> is empty. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.bheap_init_fixed">
+<span class="target" id="Karngroup__bheap__fixed_1ga2ca8dbf4343c9ea3677aa04e60ff6f2a"></span>void <code class="descname">bheap_init_fixed</code><span class="sig-paren">(</span>struct  bheap_fixed  *<em>&nbsp;heap</em>, char *<em>&nbsp;nodes</em>, size_t<em>&nbsp;node_size</em>, unsigned int<em>&nbsp;nr</em><span class="sig-paren">)</span><a class="headerlink" href="#c.bheap_init_fixed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a <a class="reference internal" href="#Karnstructbheap__fixed"><span class="std std-ref">bheap_fixed</span></a>. </p>
+<p><code class="docutils literal"><span class="pre">nodes</span></code> must point to a memory area large enough to contain at least <code class="docutils literal"><span class="pre">nr</span></code> nodes<dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">heap</span></code>: heap to initialize </li>
+<li><code class="docutils literal"><span class="pre">nodes</span></code>: underlying memory area containing nodes </li>
+<li><code class="docutils literal"><span class="pre">node_size</span></code>: size in bytes of a single node sitting into <code class="docutils literal"><span class="pre">heap</span></code> </li>
+<li><code class="docutils literal"><span class="pre">nr</span></code>: maximum number of nodes <code class="docutils literal"><span class="pre">heap</span></code> may contain</li>
+</ul>
+</dd>
+</dl>
+</p>
+<p><dl class="docutils">
+<dt><strong>Warning</strong></dt>
+<dd>Behavior is undefined when called with a zero <code class="docutils literal"><span class="pre">nr</span></code> or a zero <code class="docutils literal"><span class="pre">node_size</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.bheap_fini_fixed">
+<span class="target" id="Karngroup__bheap__fixed_1gaf8c7b6f866ca1e445fad65342a4b3e1a"></span>void <code class="descname">bheap_fini_fixed</code><span class="sig-paren">(</span>struct  bheap_fixed  *<em>&nbsp;heap</em><span class="sig-paren">)</span><a class="headerlink" href="#c.bheap_fini_fixed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Release resources allocated for a <a class="reference internal" href="#Karnstructbheap__fixed"><span class="std std-ref">bheap_fixed</span></a>. </p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">heap</span></code>: heap to release resources for </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.bheap_create_fixed">
+<span class="target" id="Karngroup__bheap__fixed_1ga0f2e4745584aca863d07a44b14cb2a8b"></span>struct bheap_fixed* <code class="descname">bheap_create_fixed</code><span class="sig-paren">(</span>size_t<em>&nbsp;node_size</em>, unsigned int<em>&nbsp;nr</em><span class="sig-paren">)</span><a class="headerlink" href="#c.bheap_create_fixed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a <a class="reference internal" href="#Karnstructbheap__fixed"><span class="std std-ref">bheap_fixed</span></a>. </p>
+<p>
+Wrapper allocating and initializing a <a class="reference internal" href="#Karnstructbheap__fixed"><span class="std std-ref">bheap_fixed</span></a>.<dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">node_size</span></code>: size in bytes of a single node sitting into <code class="docutils literal"><span class="pre">heap</span></code> </li>
+<li><code class="docutils literal"><span class="pre">nr</span></code>: maximum number of nodes <code class="docutils literal"><span class="pre">heap</span></code> may contain</li>
+</ul>
+</dd>
+</dl>
+</p>
+<p><dl class="docutils">
+<dt><strong>Warning</strong></dt>
+<dd>Behavior is undefined when called with a zero <code class="docutils literal"><span class="pre">nr</span></code> or a zero <code class="docutils literal"><span class="pre">node_size</span></code>.</dd>
+<dt><strong>Return</strong></dt>
+<dd>pointer to new created binary heap </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.bheap_destroy_fixed">
+<span class="target" id="Karngroup__bheap__fixed_1ga32a41737d758631eea996b6962e4a346"></span>void <code class="descname">bheap_destroy_fixed</code><span class="sig-paren">(</span>struct  bheap_fixed  *<em>&nbsp;heap</em><span class="sig-paren">)</span><a class="headerlink" href="#c.bheap_destroy_fixed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Release resources allocated by <a class="reference internal" href="#Karngroup__bheap__fixed_1ga0f2e4745584aca863d07a44b14cb2a8b"><span class="std std-ref">bheap_create_fixed()</span></a> for fixed length array based binary heap. </p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">heap</span></code>: heap to release resources for </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv211bheap_fixed">
+<span id="bheap_fixed"></span><span class="target" id="Karnstructbheap__fixed"></span><em class="property">struct </em><code class="descclassname"></code><code class="descname">bheap_fixed</code><a class="headerlink" href="#_CPPv211bheap_fixed" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;bheap.h&gt;</em><p>Fixed length array based binary heap. </p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="variable">
+<dt id="c.bheap_fixed::node_size">
+<span class="target" id="Karnstructbheap__fixed_1ab821d0a5b58a6fe17d6e480055b07506"></span>size_t <code class="descname">node_size</code><a class="headerlink" href="#c.bheap_fixed::node_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Size of a single node / item in bytes. </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.bheap_fixed::bheap_tree">
+<span class="target" id="Karnstructbheap__fixed_1aecd44aa22b0035a5fe44a69b0fc24562"></span>struct bstree_fixed <code class="descname">bheap_tree</code><a class="headerlink" href="#c.bheap_fixed::bheap_tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>underlying binary search tree </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div><!-- /row -->
+
+      <!-- row -->
+      <div class="row footer-relbar">
+<div id="navbar-related" class=" related navbar navbar-default" role="navigation" aria-label="related navigation">
+  <div class="navbar-inner">
+    <ul class="nav navbar-nav ">
+        <li><a href="index.html">Karn 0.1 documentation</a></li>
+    </ul>
+<ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
+      
+        <li><a href="dev.html" title="Developer notes" >previous</a></li>
+        <li><a href="genindex.html" title="General Index" >index</a></li>
+        <li><a href="#">top</a></li> 
+      
+    </ul>
+  </div>
+</div>
+      </div><!-- /row -->
+
+      <!-- footer -->
+      <footer role="contentinfo">
+          &copy; Copyright 2017, Grégor Boirie.
+      </footer>
+      <!-- /footer -->
+
+    </div>
+    <!-- /container -->
+
+  </body>
+</html>

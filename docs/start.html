@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
+    <title>Getting started &mdash; Karn 0.1 documentation</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+
+<link rel="stylesheet" href="_static/css/basicstrap-base.css" type="text/css" />
+<link rel="stylesheet" id="current-theme" href="_static/css/bootstrap3/bootswatch-sandstone.css" type="text/css" />
+<link rel="stylesheet" id="current-adjust-theme" href="_static/css/adjust_theme/bootswatch-sandstone.css" type="text/css" />
+
+<link rel="stylesheet" href="_static/css/font-awesome.min.css">
+
+<style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+</style>
+
+<link rel="stylesheet" href="_static/css/basicstrap.css" type="text/css" />
+<link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+<link rel="stylesheet" href="_static/css/karn.css" type="text/css" />
+    
+<script type="text/javascript">
+  var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    './',
+            VERSION:     '0.1',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+  };
+</script>
+    <script type="text/javascript" src="_static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/bootstrap3.min.js"></script>
+<script type="text/javascript" src="_static/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="_static/js/basicstrap.js"></script>
+<script type="text/javascript">
+</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="Karn 0.1 documentation" href="index.html" />
+    <link rel="next" title="Build and install" href="make.html" />
+    <link rel="prev" title="Getting started" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div id="navbar-top" class="navbar navbar-fixed-top navbar-inverse" role="navigation" aria-label="top navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Karn 0.1 documentation</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown visible-xs">
+                <a role="button" id="localToc" data-toggle="dropdown" data-target="#" href="#">Table Of Contents <b class="caret"></b></a>
+                <ul class="dropdown-menu localtoc sp-localtoc" role="menu" aria-labelledby="localToc">
+                <ul>
+<li><a class="reference internal" href="#">Getting started</a><ul>
+<li><a class="reference internal" href="#distinctive-features">Distinctive features</a></li>
+<li><a class="reference internal" href="#api-design-rationales">API design rationales</a></li>
+<li><a class="reference internal" href="#licensing">Licensing</a></li>
+</ul>
+</li>
+</ul>
+
+                </ul>
+              </li>
+
+            
+              <li><a href="index.html" title="Getting started" accesskey="P">previous </a></li>
+              <li><a href="make.html" title="Build and install" accesskey="N">next </a></li>
+              <li><a href="genindex.html" title="General Index" accesskey="I">index </a></li>
+            
+
+            <li class="visible-xs">
+                <form class="search form-search form-inline navbar-form navbar-right sp-searchbox" action="search.html" method="get">
+                  <div class="input-append input-group">
+                    <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+                    <span class="input-group-btn">
+                    <input type="submit" class="btn" value="Go" />
+                    </span>
+                  </div>
+                  <input type="hidden" name="check_keywords" value="yes" />
+                  <input type="hidden" name="area" value="default" />
+                </form>
+            </li>
+
+            
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- container -->
+    <div class="container-fluid">
+
+      <!-- row -->
+      <div class="row">
+         
+<div class="col-md-3 hidden-xs" id="sidebar-wrapper">
+  <div class="sidebar hidden-xs" role="navigation" aria-label="main navigation">
+<div id="searchbox" role="search">
+  <h3>Quick search</h3>
+  <form class="search form-inline" action="search.html" method="get">
+      <div class="input-append input-group">
+        <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+        <span class="input-group-btn">
+        <input type="submit" class="btn" value="Go" />
+        </span>
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#distinctive-features">Distinctive features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api-design-rationales">API design rationales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#licensing">Licensing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="make.html">Build and install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_struct.html">Data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev.html">Developer notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API reference</a></li>
+</ul>
+
+  </div>
+</div> 
+        
+
+        <div class="col-md-9" id="content-wrapper">
+          <div class="document" role="main">
+            <div class="documentwrapper">
+              <div class="bodywrapper">
+                <div class="body">
+                  
+  <div class="section" id="getting-started">
+<h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<p>Karn is a self instructional / training project aiming to provide practical
+implementations of well known data structures such as the ones found onto
+Wikipedia&#8217;s <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_data_structures">List of data structures page</a>.</p>
+<p>Frustration each time a suitable data structure must be selected within a
+particular applicative context because of multiple reasons :</p>
+<ul class="simple">
+<li>no time to perform comparative study of available candidates,</li>
+<li>confusion as to theoretical time complexity vs measured efficiency,</li>
+<li>many unqualified implementation in the open source jungle,</li>
+<li>lack of testing coverage</li>
+<li>...</li>
+</ul>
+<p>Despite the abundant literature, always facing uncertainties with respect to
+selection criteria and trade offs. Real need for a rational and systematic
+approach with measurable results.</p>
+<p>Something like this <a class="reference external" href="http://bigocheatsheet.com/img/big-o-cheat-sheet-poster.png">Big-O Cheat Sheet Poster</a> with additional
+criteria such as:</p>
+<ul class="simple">
+<li>merging</li>
+<li>allocation strategy (stack vs heap, caller vs in-structure alloc)</li>
+<li>cache / memory hierarchies consciousness</li>
+<li>data sets properties</li>
+<li>...</li>
+</ul>
+<p>Basically, Karn&#8217;s ambition is to provide a data structures toolbox combining
+theoretical bounds understanding and experimental validation.</p>
+<div class="section" id="distinctive-features">
+<h2>Distinctive features<a class="headerlink" href="#distinctive-features" title="Permalink to this headline">¶</a></h2>
+<p>Design to run onto :</p>
+<ul class="simple">
+<li>GNU platforms</li>
+<li>PC based system</li>
+<li>hopefully on embedded targets with &#8220;reasonable&#8221; constraints in the futur</li>
+<li>for 32 bits and 64 bits CPU architecture.</li>
+</ul>
+<p><em>Data structures</em> :</p>
+<ul class="simple">
+<li><a class="reference internal" href="data_struct.html#dstruct-slist"><span class="std std-ref">Singly linked list</span></a></li>
+<li><a class="reference internal" href="data_struct.html#dstruct-bheap-fixed"><span class="std std-ref">Fixed length array based binary heap</span></a></li>
+</ul>
+<p><em>Sorting</em> :</p>
+<ul class="simple">
+<li><a class="reference internal" href="sorting.html#sort-bubble"><span class="std std-ref">Bubble sort</span></a></li>
+<li><a class="reference internal" href="sorting.html#sort-select"><span class="std std-ref">Selection sort</span></a></li>
+<li><a class="reference internal" href="sorting.html#sort-insert"><span class="std std-ref">Insertion sort</span></a></li>
+<li><a class="reference internal" href="sorting.html#sort-hybrid-merge"><span class="std std-ref">Hybrid merge sort</span></a></li>
+</ul>
+<p>Karn&#8217;s library <em>build configuration</em> allows to enable / disable individual
+features at compile time, which makes it runnable onto constrained targets.</p>
+<p>Karn comes with numerous <em>functional unit tests</em>.</p>
+<p>Finally, <em>performance assessment tools</em> hopefully allow users to select data
+structures / algorithms matching their applicative requirements.</p>
+</div>
+<div class="section" id="api-design-rationales">
+<h2>API design rationales<a class="headerlink" href="#api-design-rationales" title="Permalink to this headline">¶</a></h2>
+<p>Generally speaking, exposed APIs implement <em>no arguments validation</em> as data
+structures are meant to be embedded within applicative intermediate layers.
+Trade offs:</p>
+<ul class="simple">
+<li>prevent from code duplication (better performance and ease of maintenance) ;</li>
+<li>applicative / upper layers need some additional checks anyway ;</li>
+<li>make them suitable for constrained embedded environments ;</li>
+<li>at the cost of reduced robustness, debuggability and ease of integration.</li>
+</ul>
+<p>To mitigate the latter 2 points, all APIs are instrumented with abundant
+assertions allowing to prevent from users programmatic errors. This also
+provides them with the ability to quickly identify error root causes.</p>
+<p>As to robustness, users will have to carefully design their applicative state
+machines and implement proper arguments checking on their own. Choice is
+subjective... agreed !</p>
+</div>
+<div class="section" id="licensing">
+<h2>Licensing<a class="headerlink" href="#licensing" title="Permalink to this headline">¶</a></h2>
+<p>Available under GNU General Public License as published by the Free Software
+Foundation; either version 3 of the License, or (at your option) any later
+version. For more information, see <a class="reference external" href="http://www.gnu.org/licenses">http://www.gnu.org/licenses</a>.</p>
+</div>
+</div>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div><!-- /row -->
+
+      <!-- row -->
+      <div class="row footer-relbar">
+<div id="navbar-related" class=" related navbar navbar-default" role="navigation" aria-label="related navigation">
+  <div class="navbar-inner">
+    <ul class="nav navbar-nav ">
+        <li><a href="index.html">Karn 0.1 documentation</a></li>
+    </ul>
+<ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
+      
+        <li><a href="index.html" title="Getting started" >previous</a></li>
+        <li><a href="make.html" title="Build and install" >next</a></li>
+        <li><a href="genindex.html" title="General Index" >index</a></li>
+        <li><a href="#">top</a></li> 
+      
+    </ul>
+  </div>
+</div>
+      </div><!-- /row -->
+
+      <!-- footer -->
+      <footer role="contentinfo">
+          &copy; Copyright 2017, Grégor Boirie.
+      </footer>
+      <!-- /footer -->
+
+    </div>
+    <!-- /container -->
+
+  </body>
+</html>

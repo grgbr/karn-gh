@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
+    <title>Testing &mdash; Karn 0.1 documentation</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+
+<link rel="stylesheet" href="_static/css/basicstrap-base.css" type="text/css" />
+<link rel="stylesheet" id="current-theme" href="_static/css/bootstrap3/bootswatch-sandstone.css" type="text/css" />
+<link rel="stylesheet" id="current-adjust-theme" href="_static/css/adjust_theme/bootswatch-sandstone.css" type="text/css" />
+
+<link rel="stylesheet" href="_static/css/font-awesome.min.css">
+
+<style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+</style>
+
+<link rel="stylesheet" href="_static/css/basicstrap.css" type="text/css" />
+<link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+<link rel="stylesheet" href="_static/css/karn.css" type="text/css" />
+    
+<script type="text/javascript">
+  var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    './',
+            VERSION:     '0.1',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+  };
+</script>
+    <script type="text/javascript" src="_static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/bootstrap3.min.js"></script>
+<script type="text/javascript" src="_static/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="_static/js/basicstrap.js"></script>
+<script type="text/javascript">
+</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="Karn 0.1 documentation" href="index.html" />
+    <link rel="next" title="Developer notes" href="dev.html" />
+    <link rel="prev" title="Sorting" href="sorting.html" /> 
+  </head>
+  <body role="document">
+    <div id="navbar-top" class="navbar navbar-fixed-top navbar-inverse" role="navigation" aria-label="top navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Karn 0.1 documentation</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown visible-xs">
+                <a role="button" id="localToc" data-toggle="dropdown" data-target="#" href="#">Table Of Contents <b class="caret"></b></a>
+                <ul class="dropdown-menu localtoc sp-localtoc" role="menu" aria-labelledby="localToc">
+                <ul>
+<li><a class="reference internal" href="#">Testing</a><ul>
+<li><a class="reference internal" href="#performance-evaluation">Performance evaluation</a><ul>
+<li><a class="reference internal" href="#data-sets">Data sets</a><ul>
+<li><a class="reference internal" href="#cumulative-ordering">Cumulative ordering</a></li>
+<li><a class="reference internal" href="#ordering-length-ratio">Ordering length ratio</a></li>
+<li><a class="reference internal" href="#fullrev">fullrev</a></li>
+<li><a class="reference internal" href="#rarerev">rarerev</a></li>
+<li><a class="reference internal" href="#even">even</a></li>
+<li><a class="reference internal" href="#rarein">rarein</a></li>
+<li><a class="reference internal" href="#fullin">fullin</a></li>
+<li><a class="reference internal" href="#worstins">worstins</a></li>
+<li><a class="reference internal" href="#random">random</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sorting-singly-linked-list">Sorting singly linked list</a><ul>
+<li><a class="reference internal" href="#sorting-algorithm-against-data-sets">Sorting algorithm against data sets</a></li>
+<li><a class="reference internal" href="#data-set-against-sorting-algorithms">Data set against sorting algorithms</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                </ul>
+              </li>
+
+            
+              <li><a href="sorting.html" title="Sorting" accesskey="P">previous </a></li>
+              <li><a href="dev.html" title="Developer notes" accesskey="N">next </a></li>
+              <li><a href="genindex.html" title="General Index" accesskey="I">index </a></li>
+            
+
+            <li class="visible-xs">
+                <form class="search form-search form-inline navbar-form navbar-right sp-searchbox" action="search.html" method="get">
+                  <div class="input-append input-group">
+                    <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+                    <span class="input-group-btn">
+                    <input type="submit" class="btn" value="Go" />
+                    </span>
+                  </div>
+                  <input type="hidden" name="check_keywords" value="yes" />
+                  <input type="hidden" name="area" value="default" />
+                </form>
+            </li>
+
+            
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- container -->
+    <div class="container-fluid">
+
+      <!-- row -->
+      <div class="row">
+         
+<div class="col-md-3 hidden-xs" id="sidebar-wrapper">
+  <div class="sidebar hidden-xs" role="navigation" aria-label="main navigation">
+<div id="searchbox" role="search">
+  <h3>Quick search</h3>
+  <form class="search form-inline" action="search.html" method="get">
+      <div class="input-append input-group">
+        <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+        <span class="input-group-btn">
+        <input type="submit" class="btn" value="Go" />
+        </span>
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="start.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="make.html">Build and install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_struct.html">Data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sorting.html">Sorting</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Testing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#performance-evaluation">Performance evaluation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#data-sets">Data sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sorting-singly-linked-list">Sorting singly linked list</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dev.html">Developer notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API reference</a></li>
+</ul>
+
+  </div>
+</div> 
+        
+
+        <div class="col-md-9" id="content-wrapper">
+          <div class="document" role="main">
+            <div class="documentwrapper">
+              <div class="bodywrapper">
+                <div class="body">
+                  
+  <div class="section" id="testing">
+<h1>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="performance-evaluation">
+<h2>Performance evaluation<a class="headerlink" href="#performance-evaluation" title="Permalink to this headline">¶</a></h2>
+<p>Measurements protocol :</p>
+<ul class="simple">
+<li>POSIX monotonic clock</li>
+<li>averaging 100&nbsp;measurements (no outliers exclusion yet)</li>
+</ul>
+<p>Done on :</p>
+<ul class="simple">
+<li>Intel(R) Core(TM) i7-3770 CPU &#64; 3.40GHz</li>
+<li>Linux 4.4.0</li>
+<li>libc6:amd64</li>
+<li>with native x86_64 Karn build.</li>
+</ul>
+<div class="section" id="data-sets">
+<span id="datasets"></span><h3>Data sets<a class="headerlink" href="#data-sets" title="Permalink to this headline">¶</a></h3>
+<p>32 bits integer key based.</p>
+<p>Key number range : 2 to 1048576 keys.</p>
+<p>Several presorting schemes :</p>
+<ul class="simple">
+<li><a class="reference internal" href="#fullrev">fullrev</a></li>
+<li><a class="reference internal" href="#rarerev">rarerev</a></li>
+<li><a class="reference internal" href="#even">even</a></li>
+<li><a class="reference internal" href="#rarein">rarein</a></li>
+<li><a class="reference internal" href="#fullin">fullin</a></li>
+<li><a class="reference internal" href="#worstins">worstins</a></li>
+<li><a class="reference internal" href="#random">random</a></li>
+</ul>
+<p>Subsections below briefly depict key presorting schemes for 256&nbsp;keys long data
+sets. Keys are identified by there presorting &#8220;sequence number&#8221;.</p>
+<div class="section" id="cumulative-ordering">
+<h4>Cumulative ordering<a class="headerlink" href="#cumulative-ordering" title="Permalink to this headline">¶</a></h4>
+<p><em>Cumulative ordering</em> plots show the cumulative sum of key order relative to
+each other. It is computed as follows :</p>
+<ol class="arabic simple">
+<li>total order factor &lt;= 0</li>
+<li>for current key, compute the order factor with respect to next key coming in
+presorting order, i.e. :<ul>
+<li>-1 if current &lt; next</li>
+<li>0 if current = next</li>
+<li>+1 if current &gt; next</li>
+</ul>
+</li>
+<li>add current order factor to total order factor</li>
+<li>loop back to step 2 untill no more keys.</li>
+</ol>
+</div>
+<div class="section" id="ordering-length-ratio">
+<h4>Ordering length ratio<a class="headerlink" href="#ordering-length-ratio" title="Permalink to this headline">¶</a></h4>
+<p><em>Ordering length ratio</em> plots show the normalized statistical distribution of
+ordering length of adjacent keys.</p>
+<p>The ordering length may be defined as the number of consecutive keys already
+sorted along the same order factor.</p>
+<p>Example:</p>
+<ul class="simple">
+<li>0, 2, 5 key sequence is order length 2 since all keys are presorted in
+increasing order</li>
+<li>0, -1, 3 is composed of 2 segments :<ul>
+<li>the first with order length -1 [0, -1],</li>
+<li>the second with order length 1 [-1, 3].</li>
+</ul>
+</li>
+</ul>
+<p>The particular case of zero order factor is always considered as being part of
+the current order segment, i.e. :</p>
+<ul class="simple">
+<li>0, 1, 1 is order length 2</li>
+<li>0, 3, 3, -1, -1, -5 is composed of 2 segments :<ul>
+<li>of order lentgh 2 [0, 3, 3], and</li>
+<li>order length 3 [3, -1, -1, -5] respectively.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="fullrev">
+<h4>fullrev<a class="headerlink" href="#fullrev" title="Permalink to this headline">¶</a></h4>
+<p>All keys presorted in reverse order.</p>
+<img alt="_images/type-int_keynr-256_presort-fullrev.png" src="_images/type-int_keynr-256_presort-fullrev.png" />
+</div>
+<div class="section" id="rarerev">
+<h4>rarerev<a class="headerlink" href="#rarerev" title="Permalink to this headline">¶</a></h4>
+<p>60% of all keys presorted in reverse order.</p>
+<img alt="_images/type-int_keynr-256_presort-rarerev.png" src="_images/type-int_keynr-256_presort-rarerev.png" />
+</div>
+<div class="section" id="even">
+<h4>even<a class="headerlink" href="#even" title="Permalink to this headline">¶</a></h4>
+<p>1 key in order, the following in reverse order, strictly.</p>
+<img alt="_images/type-int_keynr-256_presort-even.png" src="_images/type-int_keynr-256_presort-even.png" />
+</div>
+<div class="section" id="rarein">
+<h4>rarein<a class="headerlink" href="#rarein" title="Permalink to this headline">¶</a></h4>
+<p>60% of all keys presorted in order.</p>
+<img alt="_images/type-int_keynr-256_presort-rarein.png" src="_images/type-int_keynr-256_presort-rarein.png" />
+</div>
+<div class="section" id="fullin">
+<h4>fullin<a class="headerlink" href="#fullin" title="Permalink to this headline">¶</a></h4>
+<p>All keys presorted in order.</p>
+<img alt="_images/type-int_keynr-256_presort-fullin.png" src="_images/type-int_keynr-256_presort-fullin.png" />
+</div>
+<div class="section" id="worstins">
+<h4>worstins<a class="headerlink" href="#worstins" title="Permalink to this headline">¶</a></h4>
+<p>Relates to insertion sort worst case, i.e., all keys presorted in order, except
+the first one which should come in last position (once sorted).</p>
+<img alt="_images/type-int_keynr-256_presort-worstins.png" src="_images/type-int_keynr-256_presort-worstins.png" />
+</div>
+<div class="section" id="random">
+<h4>random<a class="headerlink" href="#random" title="Permalink to this headline">¶</a></h4>
+<p>Pseudo random keys with replacement.</p>
+<img alt="_images/type-int_keynr-524288_presort-random.png" src="_images/type-int_keynr-524288_presort-random.png" />
+</div>
+</div>
+<div class="section" id="sorting-singly-linked-list">
+<h3>Sorting singly linked list<a class="headerlink" href="#sorting-singly-linked-list" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="sorting-algorithm-against-data-sets">
+<h4>Sorting algorithm against data sets<a class="headerlink" href="#sorting-algorithm-against-data-sets" title="Permalink to this headline">¶</a></h4>
+<p>For each <a class="reference internal" href="sorting.html#sort-slist"><span class="std std-ref">singly linked list sorting algorithm</span></a>, following
+plots show performances comparison for all <a class="reference internal" href="#datasets"><span class="std std-ref">data sets</span></a>.</p>
+<img alt="_images/type-int_algo-bubble.png" src="_images/type-int_algo-bubble.png" />
+<img alt="_images/type-int_algo-selection.png" src="_images/type-int_algo-selection.png" />
+<img alt="_images/type-int_algo-insertion.png" src="_images/type-int_algo-insertion.png" />
+<img alt="_images/type-int_algo-merge.png" src="_images/type-int_algo-merge.png" />
+</div>
+<div class="section" id="data-set-against-sorting-algorithms">
+<h4>Data set against sorting algorithms<a class="headerlink" href="#data-set-against-sorting-algorithms" title="Permalink to this headline">¶</a></h4>
+<p>For each <a class="reference internal" href="#datasets"><span class="std std-ref">data set</span></a>, following plots show performances
+comparison for all <a class="reference internal" href="sorting.html#sort-slist"><span class="std std-ref">singly linked list sorting algorithms</span></a>.</p>
+<img alt="_images/type-int_presort-even.png" src="_images/type-int_presort-even.png" />
+<img alt="_images/type-int_presort-fullin.png" src="_images/type-int_presort-fullin.png" />
+<img alt="_images/type-int_presort-fullrev.png" src="_images/type-int_presort-fullrev.png" />
+<img alt="_images/type-int_presort-random.png" src="_images/type-int_presort-random.png" />
+<img alt="_images/type-int_presort-rarein.png" src="_images/type-int_presort-rarein.png" />
+<img alt="_images/type-int_presort-rarerev.png" src="_images/type-int_presort-rarerev.png" />
+<img alt="_images/type-int_presort-worstins.png" src="_images/type-int_presort-worstins.png" />
+</div>
+</div>
+</div>
+</div>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div><!-- /row -->
+
+      <!-- row -->
+      <div class="row footer-relbar">
+<div id="navbar-related" class=" related navbar navbar-default" role="navigation" aria-label="related navigation">
+  <div class="navbar-inner">
+    <ul class="nav navbar-nav ">
+        <li><a href="index.html">Karn 0.1 documentation</a></li>
+    </ul>
+<ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
+      
+        <li><a href="sorting.html" title="Sorting" >previous</a></li>
+        <li><a href="dev.html" title="Developer notes" >next</a></li>
+        <li><a href="genindex.html" title="General Index" >index</a></li>
+        <li><a href="#">top</a></li> 
+      
+    </ul>
+  </div>
+</div>
+      </div><!-- /row -->
+
+      <!-- footer -->
+      <footer role="contentinfo">
+          &copy; Copyright 2017, Grégor Boirie.
+      </footer>
+      <!-- /footer -->
+
+    </div>
+    <!-- /container -->
+
+  </body>
+</html>

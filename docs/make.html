@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
+    <title>Build and install &mdash; Karn 0.1 documentation</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+
+<link rel="stylesheet" href="_static/css/basicstrap-base.css" type="text/css" />
+<link rel="stylesheet" id="current-theme" href="_static/css/bootstrap3/bootswatch-sandstone.css" type="text/css" />
+<link rel="stylesheet" id="current-adjust-theme" href="_static/css/adjust_theme/bootswatch-sandstone.css" type="text/css" />
+
+<link rel="stylesheet" href="_static/css/font-awesome.min.css">
+
+<style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+</style>
+
+<link rel="stylesheet" href="_static/css/basicstrap.css" type="text/css" />
+<link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+<link rel="stylesheet" href="_static/css/karn.css" type="text/css" />
+    
+<script type="text/javascript">
+  var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    './',
+            VERSION:     '0.1',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+  };
+</script>
+    <script type="text/javascript" src="_static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/bootstrap3.min.js"></script>
+<script type="text/javascript" src="_static/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="_static/js/basicstrap.js"></script>
+<script type="text/javascript">
+</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="Karn 0.1 documentation" href="index.html" />
+    <link rel="next" title="Data structures" href="data_struct.html" />
+    <link rel="prev" title="Getting started" href="start.html" /> 
+  </head>
+  <body role="document">
+    <div id="navbar-top" class="navbar navbar-fixed-top navbar-inverse" role="navigation" aria-label="top navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Karn 0.1 documentation</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown visible-xs">
+                <a role="button" id="localToc" data-toggle="dropdown" data-target="#" href="#">Table Of Contents <b class="caret"></b></a>
+                <ul class="dropdown-menu localtoc sp-localtoc" role="menu" aria-labelledby="localToc">
+                <ul>
+<li><a class="reference internal" href="#">Build and install</a><ul>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#id1">Build and install</a></li>
+<li><a class="reference internal" href="#make-targets">Make targets</a></li>
+</ul>
+</li>
+</ul>
+
+                </ul>
+              </li>
+
+            
+              <li><a href="start.html" title="Getting started" accesskey="P">previous </a></li>
+              <li><a href="data_struct.html" title="Data structures" accesskey="N">next </a></li>
+              <li><a href="genindex.html" title="General Index" accesskey="I">index </a></li>
+            
+
+            <li class="visible-xs">
+                <form class="search form-search form-inline navbar-form navbar-right sp-searchbox" action="search.html" method="get">
+                  <div class="input-append input-group">
+                    <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+                    <span class="input-group-btn">
+                    <input type="submit" class="btn" value="Go" />
+                    </span>
+                  </div>
+                  <input type="hidden" name="check_keywords" value="yes" />
+                  <input type="hidden" name="area" value="default" />
+                </form>
+            </li>
+
+            
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- container -->
+    <div class="container-fluid">
+
+      <!-- row -->
+      <div class="row">
+         
+<div class="col-md-3 hidden-xs" id="sidebar-wrapper">
+  <div class="sidebar hidden-xs" role="navigation" aria-label="main navigation">
+<div id="searchbox" role="search">
+  <h3>Quick search</h3>
+  <form class="search form-inline" action="search.html" method="get">
+      <div class="input-append input-group">
+        <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+        <span class="input-group-btn">
+        <input type="submit" class="btn" value="Go" />
+        </span>
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="start.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Build and install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Build and install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#make-targets">Make targets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data_struct.html">Data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev.html">Developer notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API reference</a></li>
+</ul>
+
+  </div>
+</div> 
+        
+
+        <div class="col-md-9" id="content-wrapper">
+          <div class="document" role="main">
+            <div class="documentwrapper">
+              <div class="bodywrapper">
+                <div class="body">
+                  
+  <div class="section" id="build-and-install">
+<h1>Build and install<a class="headerlink" href="#build-and-install" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>To build library :</p>
+<ul class="simple">
+<li>make</li>
+<li>gcc</li>
+<li>glibc (custom C library planned in the future)</li>
+<li>kconfig frontends</li>
+</ul>
+<p>To build and run unit tests :</p>
+<ul class="simple">
+<li>cute</li>
+<li>gcovr</li>
+</ul>
+<p>To run performance tests :</p>
+<ul class="simple">
+<li>python3</li>
+<li>python numpy library</li>
+<li>python matplot library</li>
+</ul>
+<p>To build documentation :</p>
+<ul class="simple">
+<li>python sphinx documentation system</li>
+<li>sphinx theme from readthedocs.org</li>
+<li>doxygen</li>
+<li>breathe bridge between python sphinx and doxygen</li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h2>Build and install<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>At present time, there is no complex / portable deployment mechanism
+implemented (this may evolve according to my spare time and contributions).</p>
+<p>First, checkout <a class="reference external" href="https://github.com/grgbr/karn.git">Karn&#8217;s git repository</a>.</p>
+<p>From the top level source directory, run following command to <em>configure the
+build process</em> :</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> make config
+</pre></div>
+</div>
+<p>You&#8217;ll get an ncurses UI allowing selection of software components to build :</p>
+<img alt="_images/make_config.png" src="_images/make_config.png" />
+<p>Select the components you&#8217;re interested in, then build Karn library :</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> make build
+</pre></div>
+</div>
+<p>The static Karn library will be produced by default into the build directory :</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> ls -al build/
+<span class="go">total 924</span>
+<span class="go">drwxr-xr-x 8 greg home   4096 Jul  9 19:33 .</span>
+<span class="go">drwxr-xr-x 9 greg home   4096 Jul  9 19:27 ..</span>
+<span class="go">-rw-r--r-- 1 greg home    214 Jul  9 19:27 .config</span>
+<span class="go">-rwxr-xr-x 1 greg home  10320 Jul  9 19:28 array_fixed_pt</span>
+<span class="go">-rw-r--r-- 1 greg home   2710 Jul  9 19:28 array_fixed_pt.d</span>
+<span class="go">drwxr-xr-x 2 greg home   4096 Jul  9 19:28 dbg</span>
+<span class="go">drwxr-xr-x 7 greg home   4096 Jul  9 19:41 doc</span>
+<span class="go">drwxr-xr-x 4 greg home   4096 Jul  9 19:27 include</span>
+<span class="go">-rwxr-xr-x 1 greg home 238432 Jul  9 19:28 karn_ut</span>
+<span class="go">-rw-r--r-- 1 greg home  36539 Jul  9 19:33 karn_ut-cov.rst</span>
+<span class="go">-rwxr-xr-x 1 greg home 221480 Jul  9 19:28 karn_utdbg</span>
+<span class="hll"><span class="go">-rw-r--r-- 1 greg home  33084 Jul  9 19:28 libkarn.a</span>
+</span><span class="go">-rw-r--r-- 1 greg home 207292 Jul  9 19:28 libkarn_dbg.a</span>
+<span class="go">-rw-r--r-- 1 greg home  36388 Jul  9 19:28 libkarn_pt.a</span>
+<span class="go">-rw-r--r-- 1 greg home 120156 Jul  9 19:28 libkarn_ut.a</span>
+<span class="go">drwxr-xr-x 2 greg home   4096 Jul  9 19:28 pt</span>
+<span class="go">-rwxr-xr-x 1 greg home  14416 Jul  9 19:28 slist_pt</span>
+<span class="go">-rw-r--r-- 1 greg home   3183 Jul  9 19:28 slist_pt.d</span>
+<span class="go">drwxr-xr-x 2 greg home   4096 Jul  9 19:33 ut</span>
+<span class="go">drwxr-xr-x 2 greg home   4096 Jul  9 19:28 utdbg</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="make-targets">
+<h2>Make targets<a class="headerlink" href="#make-targets" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">document make targets and available variables</p>
+</div>
+</div>
+</div>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div><!-- /row -->
+
+      <!-- row -->
+      <div class="row footer-relbar">
+<div id="navbar-related" class=" related navbar navbar-default" role="navigation" aria-label="related navigation">
+  <div class="navbar-inner">
+    <ul class="nav navbar-nav ">
+        <li><a href="index.html">Karn 0.1 documentation</a></li>
+    </ul>
+<ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
+      
+        <li><a href="start.html" title="Getting started" >previous</a></li>
+        <li><a href="data_struct.html" title="Data structures" >next</a></li>
+        <li><a href="genindex.html" title="General Index" >index</a></li>
+        <li><a href="#">top</a></li> 
+      
+    </ul>
+  </div>
+</div>
+      </div><!-- /row -->
+
+      <!-- footer -->
+      <footer role="contentinfo">
+          &copy; Copyright 2017, Grégor Boirie.
+      </footer>
+      <!-- /footer -->
+
+    </div>
+    <!-- /container -->
+
+  </body>
+</html>

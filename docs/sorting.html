@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
+    <title>Sorting &mdash; Karn 0.1 documentation</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+
+<link rel="stylesheet" href="_static/css/basicstrap-base.css" type="text/css" />
+<link rel="stylesheet" id="current-theme" href="_static/css/bootstrap3/bootswatch-sandstone.css" type="text/css" />
+<link rel="stylesheet" id="current-adjust-theme" href="_static/css/adjust_theme/bootswatch-sandstone.css" type="text/css" />
+
+<link rel="stylesheet" href="_static/css/font-awesome.min.css">
+
+<style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+</style>
+
+<link rel="stylesheet" href="_static/css/basicstrap.css" type="text/css" />
+<link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+<link rel="stylesheet" href="_static/css/karn.css" type="text/css" />
+    
+<script type="text/javascript">
+  var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    './',
+            VERSION:     '0.1',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+  };
+</script>
+    <script type="text/javascript" src="_static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/bootstrap3.min.js"></script>
+<script type="text/javascript" src="_static/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="_static/js/basicstrap.js"></script>
+<script type="text/javascript">
+</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="Karn 0.1 documentation" href="index.html" />
+    <link rel="next" title="Testing" href="test.html" />
+    <link rel="prev" title="Data structures" href="data_struct.html" /> 
+  </head>
+  <body role="document">
+    <div id="navbar-top" class="navbar navbar-fixed-top navbar-inverse" role="navigation" aria-label="top navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Karn 0.1 documentation</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown visible-xs">
+                <a role="button" id="localToc" data-toggle="dropdown" data-target="#" href="#">Table Of Contents <b class="caret"></b></a>
+                <ul class="dropdown-menu localtoc sp-localtoc" role="menu" aria-labelledby="localToc">
+                <ul>
+<li><a class="reference internal" href="#">Sorting</a><ul>
+<li><a class="reference internal" href="#singly-linked-list">Singly linked list</a><ul>
+<li><a class="reference internal" href="#bubble-sort">Bubble sort</a></li>
+<li><a class="reference internal" href="#selection-sort">Selection sort</a></li>
+<li><a class="reference internal" href="#insertion-sort">Insertion sort</a></li>
+<li><a class="reference internal" href="#hybrid-merge-sort">Hybrid merge sort</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#algorithm-properties">Algorithm properties</a></li>
+</ul>
+</li>
+</ul>
+
+                </ul>
+              </li>
+
+            
+              <li><a href="data_struct.html" title="Data structures" accesskey="P">previous </a></li>
+              <li><a href="test.html" title="Testing" accesskey="N">next </a></li>
+              <li><a href="genindex.html" title="General Index" accesskey="I">index </a></li>
+            
+
+            <li class="visible-xs">
+                <form class="search form-search form-inline navbar-form navbar-right sp-searchbox" action="search.html" method="get">
+                  <div class="input-append input-group">
+                    <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+                    <span class="input-group-btn">
+                    <input type="submit" class="btn" value="Go" />
+                    </span>
+                  </div>
+                  <input type="hidden" name="check_keywords" value="yes" />
+                  <input type="hidden" name="area" value="default" />
+                </form>
+            </li>
+
+            
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- container -->
+    <div class="container-fluid">
+
+      <!-- row -->
+      <div class="row">
+         
+<div class="col-md-3 hidden-xs" id="sidebar-wrapper">
+  <div class="sidebar hidden-xs" role="navigation" aria-label="main navigation">
+<div id="searchbox" role="search">
+  <h3>Quick search</h3>
+  <form class="search form-inline" action="search.html" method="get">
+      <div class="input-append input-group">
+        <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+        <span class="input-group-btn">
+        <input type="submit" class="btn" value="Go" />
+        </span>
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="start.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="make.html">Build and install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_struct.html">Data structures</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Sorting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#singly-linked-list">Singly linked list</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bubble-sort">Bubble sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#selection-sort">Selection sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#insertion-sort">Insertion sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hybrid-merge-sort">Hybrid merge sort</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#algorithm-properties">Algorithm properties</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="test.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev.html">Developer notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API reference</a></li>
+</ul>
+
+  </div>
+</div> 
+        
+
+        <div class="col-md-9" id="content-wrapper">
+          <div class="document" role="main">
+            <div class="documentwrapper">
+              <div class="bodywrapper">
+                <div class="body">
+                  
+  <div class="section" id="sorting">
+<h1>Sorting<a class="headerlink" href="#sorting" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="singly-linked-list">
+<span id="sort-slist"></span><h2>Singly linked list<a class="headerlink" href="#singly-linked-list" title="Permalink to this headline">¶</a></h2>
+<p>4 available flavours:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#sort-bubble"><span class="std std-ref">Bubble sort</span></a>,</li>
+<li><a class="reference internal" href="#sort-select"><span class="std std-ref">Selection sort</span></a>,</li>
+<li><a class="reference internal" href="#sort-insert"><span class="std std-ref">Insertion sort</span></a>,</li>
+<li><a class="reference internal" href="#sort-hybrid-merge"><span class="std std-ref">Hybrid merge sort</span></a>.</li>
+</ul>
+<p>For linked lists note that :</p>
+<ul class="simple">
+<li>the relative cost of item swapping vs comparison is much smaller than for
+arrays,</li>
+<li>most of the time, much smaller number of item swaps needed than for arrays
+(depends on algorithm however),</li>
+<li>at the cost of lower cache locality.</li>
+</ul>
+<table border="1" class="docutils" id="id1">
+<caption><span class="caption-text">Sorting algorithm properties</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="8%" />
+<col width="12%" />
+<col width="24%" />
+<col width="19%" />
+<col width="19%" />
+<col width="19%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="2" rowspan="2">Property</th>
+<th class="head" colspan="4">Algorithm</th>
+</tr>
+<tr class="row-even"><th class="head">Hybrid merge</th>
+<th class="head">Insertion</th>
+<th class="head">Selection</th>
+<th class="head">Bubble</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-odd"><td colspan="2"><a class="reference internal" href="#term-adaptive"><span class="xref std std-term">Adaptive</span></a></td>
+<td>sort of</td>
+<td>yes</td>
+<td>no</td>
+<td>yes</td>
+</tr>
+<tr class="row-even"><td colspan="2"><a class="reference internal" href="#term-online"><span class="xref std std-term">Online</span></a></td>
+<td>no</td>
+<td>yes</td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr class="row-odd"><td colspan="2"><a class="reference internal" href="#term-stable"><span class="xref std std-term">Stable</span></a></td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr class="row-even"><td rowspan="3">Time</td>
+<td>worst</td>
+<td><span class="math">\(O(nlog(n))\)</span></td>
+<td><span class="math">\(O(n^2)\)</span></td>
+<td><span class="math">\(O(n^2)\)</span></td>
+<td><span class="math">\(O(n^2)\)</span></td>
+</tr>
+<tr class="row-odd"><td>average</td>
+<td><span class="math">\(O(nlog(n))\)</span></td>
+<td><span class="math">\(O(n^2)\)</span></td>
+<td><span class="math">\(O(n^2)\)</span></td>
+<td><span class="math">\(O(n^2)\)</span></td>
+</tr>
+<tr class="row-even"><td>best</td>
+<td><span class="math">\(O(n)\)</span></td>
+<td><span class="math">\(O(n)\)</span></td>
+<td><span class="math">\(O(n^2)\)</span></td>
+<td><span class="math">\(O(n)\)</span></td>
+</tr>
+<tr class="row-odd"><td rowspan="3">Space</td>
+<td>worst</td>
+<td>27 slists
+(54 words)</td>
+<td><span class="math">\(O(1)\)</span></td>
+<td><span class="math">\(O(1)\)</span></td>
+<td><span class="math">\(O(1)\)</span></td>
+</tr>
+<tr class="row-even"><td>average</td>
+<td><span class="math">\(O(log(n))\)</span></td>
+<td><span class="math">\(O(1)\)</span></td>
+<td><span class="math">\(O(1)\)</span></td>
+<td><span class="math">\(O(1)\)</span></td>
+</tr>
+<tr class="row-odd"><td>best</td>
+<td><span class="math">\(O(1)\)</span></td>
+<td><span class="math">\(O(1)\)</span></td>
+<td><span class="math">\(O(1)\)</span></td>
+<td><span class="math">\(O(1)\)</span></td>
+</tr>
+<tr class="row-even"><td colspan="2"><a class="reference internal" href="#term-in-place"><span class="xref std std-term">In-place</span></a></td>
+<td>no</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr class="row-odd"><td colspan="2">Allocation</td>
+<td>on stack</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr class="row-even"><td colspan="2">Recursive</td>
+<td>no</td>
+<td>no</td>
+<td>no</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="bubble-sort">
+<span id="sort-bubble"></span><h3>Bubble sort<a class="headerlink" href="#bubble-sort" title="Permalink to this headline">¶</a></h3>
+<div class="sidebar">
+<p class="first sidebar-title">Quick links</p>
+<p class="last"><a class="reference internal" href="api.html#c.slist_bubble_sort" title="slist_bubble_sort"><code class="xref c c-func docutils literal"><span class="pre">slist_bubble_sort()</span></code></a></p>
+</div>
+<p>Sort scheme based upon traditional algorithm depicted onto <a class="reference external" href="https://en.wikipedia.org/wiki/Bubble_sort">Wikipedia&#8217;s
+bubble sort page</a>.</p>
+<p>Algorithm Outline :</p>
+<ol class="arabic simple">
+<li>iterate over unsorted list untill an out of order item is found,</li>
+<li>swap it with its adjacent predecessor,</li>
+<li>loop back to step 1 till the end of (partially) unsorted list,</li>
+<li>keep looping back to step 1 as long as swaps are needed.</li>
+</ol>
+<p>Noteworthy points:</p>
+<ul class="simple">
+<li>most complex implementation of all algorithm mentioned here,</li>
+<li>high number of items swaps,</li>
+<li>decent efficiency with presorted data sets,</li>
+<li>poor to extremely low efficiency even over small data sets.</li>
+</ul>
+<p>Implemented for reference only : <strong>do not use</strong> it.</p>
+</div>
+<div class="section" id="selection-sort">
+<span id="sort-select"></span><h3>Selection sort<a class="headerlink" href="#selection-sort" title="Permalink to this headline">¶</a></h3>
+<div class="sidebar">
+<p class="first sidebar-title">Quick links</p>
+<p class="last"><a class="reference internal" href="api.html#c.slist_selection_sort" title="slist_selection_sort"><code class="xref c c-func docutils literal"><span class="pre">slist_selection_sort()</span></code></a></p>
+</div>
+<p>Sort scheme based upon traditional algorithm depicted onto <a class="reference external" href="https://en.wikipedia.org/wiki/Selection_sort">Wikipedia&#8217;s
+selection sort page</a>.</p>
+<p>Algorithm Outline :</p>
+<ol class="arabic simple">
+<li>setup 2 sublists, one empty for future sorted items, the other for unsorted
+ones,</li>
+<li>iterate over whole unsorted sublist to locate next in order item,</li>
+<li>insert it at tail of sorted sublist,</li>
+<li>loop back to step 2 untill all unsorted list items are consumed.</li>
+</ol>
+<p>Noteworthy points:</p>
+<ul class="simple">
+<li>simple implementation although a bit more complex than insertion sort,</li>
+<li>worst time efficiency of all algorithm,</li>
+<li>deterministic.</li>
+</ul>
+<p>Only there for reference purpose : <strong>don&#8217;t use</strong> it.</p>
+</div>
+<div class="section" id="insertion-sort">
+<span id="sort-insert"></span><h3>Insertion sort<a class="headerlink" href="#insertion-sort" title="Permalink to this headline">¶</a></h3>
+<div class="sidebar">
+<p class="first sidebar-title">Quick links</p>
+<p class="last"><a class="reference internal" href="api.html#c.slist_insertion_sort" title="slist_insertion_sort"><code class="xref c c-func docutils literal"><span class="pre">slist_insertion_sort()</span></code></a>
+<a class="reference internal" href="api.html#c.slist_counted_insertion_sort" title="slist_counted_insertion_sort"><code class="xref c c-func docutils literal"><span class="pre">slist_counted_insertion_sort()</span></code></a></p>
+</div>
+<p>Sort scheme based upon traditional algorithm depicted onto <a class="reference external" href="https://en.wikipedia.org/wiki/Insertion_sort">Wikipedia&#8217;s
+insertion sort page</a>.</p>
+<p>Algorithm Outline :</p>
+<ol class="arabic simple">
+<li>setup 2 sublists, one empty for future sorted items, the other for unsorted
+ones,</li>
+<li>iterate over unsorted sublist untill an unsorted item is found,</li>
+<li>insert it in order into sorted sublist,</li>
+<li>loop back to step 2 untill all unsorted list items are consumed.</li>
+</ol>
+<p>Noteworthy points :</p>
+<ul class="simple">
+<li>simple implementation,</li>
+<li>limited number of items swaps,</li>
+<li>very efficient on small and presorted data sets,</li>
+<li>poor efficiency over large data sets.</li>
+</ul>
+<p>Which makes it the best choice (even far better than merge sort) for slightly
+to mostly presorted data sets. It suffers from a <em>pathological</em> worst case
+behavior when first unsorted item :</p>
+<ul class="simple">
+<li>must land at last position after sorting completion and,</li>
+<li>is followed by items strictly sorted in order.</li>
+</ul>
+<p>The hybrid merge sort scheme tries to benefit from the very good insertion sort
+efficiency while mitigating its worst case behavior by taking advantage of the
+divide and conquer strategy.</p>
+</div>
+<div class="section" id="hybrid-merge-sort">
+<span id="sort-hybrid-merge"></span><h3>Hybrid merge sort<a class="headerlink" href="#hybrid-merge-sort" title="Permalink to this headline">¶</a></h3>
+<div class="sidebar">
+<p class="first sidebar-title">Quick links</p>
+<p class="last"><a class="reference internal" href="api.html#c.slist_merge_sort" title="slist_merge_sort"><code class="xref c c-func docutils literal"><span class="pre">slist_merge_sort()</span></code></a>
+<a class="reference internal" href="api.html#c.slist_hybrid_merge_sort" title="slist_hybrid_merge_sort"><code class="xref c c-func docutils literal"><span class="pre">slist_hybrid_merge_sort()</span></code></a>
+<a class="reference internal" href="api.html#c.slist_merge_presort" title="slist_merge_presort"><code class="xref c c-func docutils literal"><span class="pre">slist_merge_presort()</span></code></a></p>
+</div>
+<p>Merge sorting implementation is based on an original idea attributed to
+Jon McCarthy and described
+<a class="reference external" href="http://richardhartersworld.com/cri/2007/schoen.html">here</a>.</p>
+<p>The whole point is : avoid excessive scanning of the list during sublist
+splitting phases by using an additional bounded auxiliary space to store
+sublist heads.
+The whole process is performed in an iterative manner.</p>
+<p>Hybrid algorithm will start using the merge sort&#8217;s divide and conquer
+strategy only when number of keys to be sorted is greater than a calculated
+threshold. It will rely upon insertion sorting otherwise.</p>
+<p>This threshold is automatically computed according to an heuristic implemented
+in <a class="reference internal" href="api.html#c.slist_merge_sort" title="slist_merge_sort"><code class="xref c c-func docutils literal"><span class="pre">slist_merge_sort()</span></code></a> . Tradeoffs:</p>
+<ul class="simple">
+<li>the lower the value, the better the worst case in terms of computational
+complexity and the larger the used stack space ;</li>
+<li>the greater the value, the better the best case in terms of computational
+complexity and the lower the used stack space.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="algorithm-properties">
+<h2>Algorithm properties<a class="headerlink" href="#algorithm-properties" title="Permalink to this headline">¶</a></h2>
+<dl class="glossary docutils">
+<dt id="term-adaptive">Adaptive</dt>
+<dd>speeds up to <span class="math">\(O(n)\)</span> when data is nearly sorted</dd>
+<dt id="term-online">Online</dt>
+<dd>can sort a list as it receives it, i.e. on-the-fly</dd>
+<dt id="term-in-place">In-place</dt>
+<dd>only requires a constant amount <span class="math">\(O(1)\)</span> of additional memory space</dd>
+<dt id="term-stable">Stable</dt>
+<dd>does not change the relative order of elements with equal keys</dd>
+</dl>
+</div>
+</div>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div><!-- /row -->
+
+      <!-- row -->
+      <div class="row footer-relbar">
+<div id="navbar-related" class=" related navbar navbar-default" role="navigation" aria-label="related navigation">
+  <div class="navbar-inner">
+    <ul class="nav navbar-nav ">
+        <li><a href="index.html">Karn 0.1 documentation</a></li>
+    </ul>
+<ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
+      
+        <li><a href="data_struct.html" title="Data structures" >previous</a></li>
+        <li><a href="test.html" title="Testing" >next</a></li>
+        <li><a href="genindex.html" title="General Index" >index</a></li>
+        <li><a href="#">top</a></li> 
+      
+    </ul>
+  </div>
+</div>
+      </div><!-- /row -->
+
+      <!-- footer -->
+      <footer role="contentinfo">
+          &copy; Copyright 2017, Grégor Boirie.
+      </footer>
+      <!-- /footer -->
+
+    </div>
+    <!-- /container -->
+
+  </body>
+</html>
