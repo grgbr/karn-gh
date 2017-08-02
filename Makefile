@@ -19,6 +19,9 @@ endef
 endif
 logmk = $(call dologmk,$(1))
 
+.PHONY: all
+all: karn-perf karn-cov karn-gh
+
 .PHONY: karn-list_configs
 karn-list_configs: $(karndir)
 	$(info $(karn_configs))
@@ -77,8 +80,8 @@ karn-cov-%: karn-check-%
 		-C $(karndir) cov \
 		BUILD=$(builddir)/$(@:karn-cov-%=%)
 
-.PHONY: gh
-gh: karn-perf-all
+.PHONY: karn-gh
+karn-gh: karn-perf-all
 	$(call logmk,building documentation) $(MAKE) \
 		-C $(karndir) doc \
 		BUILD=$(builddir)/all sphinxbuilddir=$(docdir)
