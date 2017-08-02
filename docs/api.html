@@ -42,7 +42,7 @@
     <script type="text/javascript" src="_static/js/jquery.min.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="_static/js/bootstrap3.min.js"></script>
 <script type="text/javascript" src="_static/js/jquery.cookie.min.js"></script>
 <script type="text/javascript" src="_static/js/basicstrap.js"></script>
@@ -551,10 +551,7 @@ Basically a wrapper around <a class="reference internal" href="#Karngroup__slist
 
 <dl class="define">
 <dt id="c.SLIST_INIT">
-<span class="target" id="Karngroup__slist_1ga1af87208bd4ed10cfc1e4a884a300263"></span><code class="descname">SLIST_INIT</code><span class="sig-paren">(</span>_list<span class="sig-paren">)</span> {                                                     \
-		.<a class="reference internal" href="#Karngroup__slist_1gaa4ee913a22378073ac2410c84a185ce6"><span class="std std-ref">slist_head.slist_next</span></a> = NULL,                \
-		.slist_tail            = &amp;(_list)-&gt;<a class="reference internal" href="#Karngroup__slist_1gad1b43ebc6ecd4e15f82e82c9463b10db"><span class="std std-ref">slist_head</span></a> \
-	}<a class="headerlink" href="#c.SLIST_INIT" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="Karngroup__slist_1ga1af87208bd4ed10cfc1e4a884a300263"></span><code class="descname">SLIST_INIT</code><span class="sig-paren">(</span>_list<span class="sig-paren">)</span><a class="headerlink" href="#c.SLIST_INIT" title="Permalink to this definition">¶</a></dt>
 <dd><p>slist constant initializer. </p>
 <p><dl class="docutils">
 <dt><strong>Parameters</strong></dt>
@@ -568,9 +565,7 @@ Basically a wrapper around <a class="reference internal" href="#Karngroup__slist
 
 <dl class="define">
 <dt id="c.slist_foreach_node">
-<span class="target" id="Karngroup__slist_1gac3e77ee43dc826388648cf7b3b76b676"></span><code class="descname">slist_foreach_node</code><span class="sig-paren">(</span>_list, _node<span class="sig-paren">)</span> for (_node = (_list)-&gt;<a class="reference internal" href="#Karngroup__slist_1gaa4ee913a22378073ac2410c84a185ce6"><span class="std std-ref">slist_head.slist_next</span></a>; \
-	     _node;                                  \
-	     _node = _node-&gt;<a class="reference internal" href="#Karngroup__slist_1gaa4ee913a22378073ac2410c84a185ce6"><span class="std std-ref">slist_next</span></a>)<a class="headerlink" href="#c.slist_foreach_node" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="Karngroup__slist_1gac3e77ee43dc826388648cf7b3b76b676"></span><code class="descname">slist_foreach_node</code><span class="sig-paren">(</span>_list, _node<span class="sig-paren">)</span><a class="headerlink" href="#c.slist_foreach_node" title="Permalink to this definition">¶</a></dt>
 <dd><p>Iterate over slist nodes. </p>
 <p><dl class="docutils">
 <dt><strong>Parameters</strong></dt>
@@ -585,10 +580,7 @@ Basically a wrapper around <a class="reference internal" href="#Karngroup__slist
 
 <dl class="define">
 <dt id="c.slist_entry">
-<span class="target" id="Karngroup__slist_1ga0f80a5e195f9681f1d71cfa0ed3fc85d"></span><code class="descname">slist_entry</code><span class="sig-paren">(</span>_node, _type, _member<span class="sig-paren">)</span> ({                                                         \
-		const struct <a class="reference internal" href="#Karnstructslist__node"><span class="std std-ref">slist_node</span></a> *__n = _node;              \
-		(_type *)((char *)__n - offsetof(_type, _member)); \
-	 })<a class="headerlink" href="#c.slist_entry" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="Karngroup__slist_1ga0f80a5e195f9681f1d71cfa0ed3fc85d"></span><code class="descname">slist_entry</code><span class="sig-paren">(</span>_node, _type, _member<span class="sig-paren">)</span><a class="headerlink" href="#c.slist_entry" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return type casted pointer to entry containing specified node. </p>
 <p><dl class="docutils">
 <dt><strong>Return</strong></dt>
@@ -606,7 +598,7 @@ Basically a wrapper around <a class="reference internal" href="#Karngroup__slist
 
 <dl class="define">
 <dt id="c.slist_first_entry">
-<span class="target" id="Karngroup__slist_1gaef78b7a661ee8620ca4d9adc2c30fe39"></span><code class="descname">slist_first_entry</code><span class="sig-paren">(</span>_list, _type, _member<span class="sig-paren">)</span> <a class="reference internal" href="#Karngroup__slist_1ga0f80a5e195f9681f1d71cfa0ed3fc85d"><span class="std std-ref">slist_entry</span></a>(<a class="reference internal" href="#Karngroup__slist_1ga3992525e0970a3794b7a776bf1af5a5c"><span class="std std-ref">slist_first</span></a>(_list), _type, _member)<a class="headerlink" href="#c.slist_first_entry" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="Karngroup__slist_1gaef78b7a661ee8620ca4d9adc2c30fe39"></span><code class="descname">slist_first_entry</code><span class="sig-paren">(</span>_list, _type, _member<span class="sig-paren">)</span><a class="headerlink" href="#c.slist_first_entry" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return type casted pointer to entry containing first node of specified slist. </p>
 <p><dl class="docutils">
 <dt><strong>Return</strong></dt>
@@ -624,7 +616,7 @@ Basically a wrapper around <a class="reference internal" href="#Karngroup__slist
 
 <dl class="define">
 <dt id="c.slist_last_entry">
-<span class="target" id="Karngroup__slist_1gaacb56a61e05ee0f522d2894f58583596"></span><code class="descname">slist_last_entry</code><span class="sig-paren">(</span>_list, _type, _member<span class="sig-paren">)</span> <a class="reference internal" href="#Karngroup__slist_1ga0f80a5e195f9681f1d71cfa0ed3fc85d"><span class="std std-ref">slist_entry</span></a>(<a class="reference internal" href="#Karngroup__slist_1ga063885cb544c9213a8cec356fe77a7e2"><span class="std std-ref">slist_last</span></a>(_list), _type, _member)<a class="headerlink" href="#c.slist_last_entry" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="Karngroup__slist_1gaacb56a61e05ee0f522d2894f58583596"></span><code class="descname">slist_last_entry</code><span class="sig-paren">(</span>_list, _type, _member<span class="sig-paren">)</span><a class="headerlink" href="#c.slist_last_entry" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return type casted pointer to entry containing last node of specified slist. </p>
 <p><dl class="docutils">
 <dt><strong>Return</strong></dt>
@@ -642,7 +634,7 @@ Basically a wrapper around <a class="reference internal" href="#Karngroup__slist
 
 <dl class="define">
 <dt id="c.slist_next_entry">
-<span class="target" id="Karngroup__slist_1ga999d51563ee6e8133ba120c38bfbd8ce"></span><code class="descname">slist_next_entry</code><span class="sig-paren">(</span>_entry, _member<span class="sig-paren">)</span> <a class="reference internal" href="#Karngroup__slist_1ga0f80a5e195f9681f1d71cfa0ed3fc85d"><span class="std std-ref">slist_entry</span></a>(<a class="reference internal" href="#Karngroup__slist_1gaa4ee913a22378073ac2410c84a185ce6"><span class="std std-ref">slist_next</span></a>(&amp;(_entry)-&gt;_member), typeof(*(_entry)), _member)<a class="headerlink" href="#c.slist_next_entry" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="Karngroup__slist_1ga999d51563ee6e8133ba120c38bfbd8ce"></span><code class="descname">slist_next_entry</code><span class="sig-paren">(</span>_entry, _member<span class="sig-paren">)</span><a class="headerlink" href="#c.slist_next_entry" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return type casted pointer to entry following specified entry. </p>
 <p><dl class="docutils">
 <dt><strong>Return</strong></dt>
@@ -659,11 +651,7 @@ Basically a wrapper around <a class="reference internal" href="#Karngroup__slist
 
 <dl class="define">
 <dt id="c.slist_foreach_entry">
-<span class="target" id="Karngroup__slist_1ga6f41aef98d1428a6252709b8d05e17d1"></span><code class="descname">slist_foreach_entry</code><span class="sig-paren">(</span>_list, _entry, _member<span class="sig-paren">)</span> for (_entry = <a class="reference internal" href="#Karngroup__slist_1ga0f80a5e195f9681f1d71cfa0ed3fc85d"><span class="std std-ref">slist_entry</span></a>((_list)-&gt;<a class="reference internal" href="#Karngroup__slist_1gaa4ee913a22378073ac2410c84a185ce6"><span class="std std-ref">slist_head.slist_next</span></a>, \
-	                          typeof(*(_entry)), _member);    \
-	     &amp;(_entry)-&gt;_member;                                  \
-	     _entry = <a class="reference internal" href="#Karngroup__slist_1ga0f80a5e195f9681f1d71cfa0ed3fc85d"><span class="std std-ref">slist_entry</span></a>((_entry)-&gt;<a class="reference internal" href="#Karngroup__slist_1gaa4ee913a22378073ac2410c84a185ce6"><span class="std std-ref">_member.slist_next</span></a>,   \
-	                          typeof(*(_entry)), _member))<a class="headerlink" href="#c.slist_foreach_entry" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="Karngroup__slist_1ga6f41aef98d1428a6252709b8d05e17d1"></span><code class="descname">slist_foreach_entry</code><span class="sig-paren">(</span>_list, _entry, _member<span class="sig-paren">)</span><a class="headerlink" href="#c.slist_foreach_entry" title="Permalink to this definition">¶</a></dt>
 <dd><p>Iterate over slist node container entries. </p>
 <p><dl class="docutils">
 <dt><strong>Parameters</strong></dt>
@@ -701,7 +689,7 @@ Basically a wrapper around <a class="reference internal" href="#Karngroup__slist
 
 <dl class="class">
 <dt id="_CPPv210slist_node">
-<span id="slist_node"></span><span class="target" id="Karnstructslist__node"></span><em class="property">struct </em><code class="descclassname"></code><code class="descname">slist_node</code><a class="headerlink" href="#_CPPv210slist_node" title="Permalink to this definition">¶</a><br /></dt>
+<span id="slist_node"></span><span class="target" id="Karnstructslist__node"></span><em class="property">struct </em><code class="descclassname"></code><code class="descname">slist_node</code><a class="headerlink" href="#_CPPv210slist_node" title="Permalink to this definition">¶</a></dt>
 <dd><em>#include &lt;slist.h&gt;</em><p>Singly linked list node. </p>
 <p>Describes a single entry linked into a slist. </p>
 <div class="breathe-sectiondef container">
@@ -717,7 +705,7 @@ Basically a wrapper around <a class="reference internal" href="#Karngroup__slist
 
 <dl class="class">
 <dt id="_CPPv25slist">
-<span id="slist"></span><span class="target" id="Karnstructslist"></span><em class="property">struct </em><code class="descclassname"></code><code class="descname">slist</code><a class="headerlink" href="#_CPPv25slist" title="Permalink to this definition">¶</a><br /></dt>
+<span id="slist"></span><span class="target" id="Karnstructslist"></span><em class="property">struct </em><code class="descclassname"></code><code class="descname">slist</code><a class="headerlink" href="#_CPPv25slist" title="Permalink to this definition">¶</a></dt>
 <dd><em>#include &lt;slist.h&gt;</em><p>Singly linked list. </p>
 <div class="breathe-sectiondef container">
 <p class="breathe-sectiondef-title rubric">Public Members</p>
@@ -915,7 +903,7 @@ Wrapper allocating and initializing a <a class="reference internal" href="#Karns
 
 <dl class="class">
 <dt id="_CPPv211bheap_fixed">
-<span id="bheap_fixed"></span><span class="target" id="Karnstructbheap__fixed"></span><em class="property">struct </em><code class="descclassname"></code><code class="descname">bheap_fixed</code><a class="headerlink" href="#_CPPv211bheap_fixed" title="Permalink to this definition">¶</a><br /></dt>
+<span id="bheap_fixed"></span><span class="target" id="Karnstructbheap__fixed"></span><em class="property">struct </em><code class="descclassname"></code><code class="descname">bheap_fixed</code><a class="headerlink" href="#_CPPv211bheap_fixed" title="Permalink to this definition">¶</a></dt>
 <dd><em>#include &lt;bheap.h&gt;</em><p>Fixed length array based binary heap. </p>
 <div class="breathe-sectiondef container">
 <p class="breathe-sectiondef-title rubric">Public Members</p>
