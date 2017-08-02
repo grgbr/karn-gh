@@ -51,7 +51,7 @@ karn-test-%: karn-build-%
 		BUILD=$(builddir)/$(@:karn-test-%=%)
 
 .PHONY: karn-check
-karn-check: $(foreach cfg,$(karn_configs),karn-test-$(cfg))
+karn-check: $(foreach cfg,$(karn_configs),karn-check-$(cfg))
 
 karn-check-%: karn-test-%
 	$(call logmk,running $(@:karn-check-%=%) unit tests) $(MAKE) \
@@ -65,7 +65,7 @@ karn-data:
 		DATA=$(builddir)/data
 
 .PHONY: karn-perf
-karn-perf: $(foreach cfg,$(karn_configs),karn-test-$(cfg))
+karn-perf: $(foreach cfg,$(karn_configs),karn-perf-$(cfg))
 
 karn-perf-%: karn-test-% karn-data
 	$(call logmk,running $(@:karn-perf-%=%) performance tests) $(MAKE) \
@@ -73,9 +73,9 @@ karn-perf-%: karn-test-% karn-data
 		DATA=$(builddir)/data BUILD=$(builddir)/$(@:karn-perf-%=%)
 
 .PHONY: karn-cov
-karn-cov: $(foreach cfg,$(karn_configs),karn-check-$(cfg))
+karn-cov: $(foreach cfg,$(karn_configs),karn-cov-$(cfg))
 
-karn-cov-%: karn-check-%
+karn-cov-%: karn-test-%
 	$(call logmk,building $(@:karn-cov-%=%) coverage statistics) $(MAKE) \
 		-C $(karndir) cov \
 		BUILD=$(builddir)/$(@:karn-cov-%=%)
