@@ -2,6 +2,8 @@ topdir   := $(CURDIR)
 builddir := $(topdir)/build
 docdir   := $(topdir)/docs
 
+DESTDIR  := /usr/local
+
 karndir := $(realpath $(topdir)/../karn)
 ifeq ($(karndir),)
 $(error Invalid Karn working directory)
@@ -21,6 +23,20 @@ logmk = $(call dologmk,$(1))
 
 .PHONY: all
 all: karn-perf karn-cov karn-gh
+
+.PHONY: install
+install: $(DESTDIR)/bin/ci.py \
+         $(DESTDIR)/share/ci_branch_folder_config.xml
+
+$(DESTDIR)/bin/ci.py: $(topdir)/ci/ci.py
+	install -m755 -D $< $@
+
+$(DESTDIR)/share/ci_branch_folder_config.xml: $(topdir)/ci/ci_branch_folder_config.xml
+	install -m644 -D $< $@
+
+.PHONY: uninstall
+uninstall:
+	$(RM) $(DESTDIR)/bin/ci.py $(DESTDIR)/share/ci_branch_folder_config.xml
 
 .PHONY: karn-list_configs
 karn-list_configs: $(karndir)
