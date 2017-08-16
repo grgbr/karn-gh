@@ -136,15 +136,15 @@ if __name__ == '__main__':
 	mainparse = argp.ArgumentParser(description = 'Manage CI jobs')
 	mainparse.add_argument('-s', '--server', metavar = 'HOST_URL',
 	                       type = str, nargs = 1,
-	                       default = 'http://localhost:8080',
+	                       default = ['http://localhost:8080'],
 	                       help = 'server host URL')
 	mainparse.add_argument('-u', '--user', metavar = 'USER_NAME',
 	                       type = str, nargs = 1,
-	                       default = os.environ['USER'],
+	                       default = [os.environ['USER']],
 	                       help = 'user used to authenticate against server ' \
 	                              'host URL')
 	mainparse.add_argument('-f', '--passwd_path', metavar = 'PASSWD_PATH',
-	                       default = os.path.join(os.environ['HOME'], '.circ'),
+	                       default = [os.path.join(os.environ['HOME'], '.circ')],
 	                       type = str, nargs = 1,
 	                       help = 'plain password file path')
 	subparse = mainparse.add_subparsers(dest = 'operation',
@@ -227,8 +227,8 @@ if __name__ == '__main__':
 
 	try:
 		secret = CiSecret()
-		ci = Ci(args.server, args.user,
-		        secret.get_from_plain_file(args.passwd_path))
+		ci = Ci(args.server[0], args.user[0],
+		        secret.get_from_plain_file(args.passwd_path[0]))
 
 		if operation == 'list_folders':
 			for f in ci.list_branch_folders(args.confdir[0], args.prefix[0]):
